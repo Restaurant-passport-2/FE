@@ -1,16 +1,18 @@
 # FE
 
-Product Vision: Restaurant Passport 2
+**Product Vision: Restaurant Passport 2**
    
-   Proposal
+   *Proposal*
 
 - What problem does your app solve? 
+
 It’s easy to get stuck in a rut, going to the same restaurant every time you have a night out. Also, for some reason, when you plan on going to a restaurant with a group, it can be really difficult to pick a place. Another consideration is that many people want to support local businesses, instead of only going to national chain places, but it can be hard to keep track and find out about locally-owned restaurants.
 
 Another possible use case is that a user might not be a fan of big social media apps and would appreciate a way to keep track of their personal restaurants without the need to sign in with social media authentication, nor having to post on social media.
 
 
 - Be as specific as possible; how does your app solve the problem?
+
  Restaurant passport will be a handy way to keep track of the restaurants in a user’s area. It will have a list of the restaurants that the user is interested in, and browsing through their list will help them think of different restaurants to go to. It will also give suggestions from the list. An additional feature that we might implement would be to use an API (such as https://developer.foursquare.com/places)  to find other restaurants that the user might be interested in, and the user could add those to their list. Also, the user can keep track of locally-owned restaurants in their list. 
 
 This app will use authentication to keep the user’s data secure, and will not require the use of social media.    
@@ -19,9 +21,10 @@ This app will use authentication to keep the user’s data secure, and will not 
  
 Restaurant Passport is a useful, secure, easy-to-use application that enables users to keep track of restaurants in their area, see relevant restaurant suggestions, and add, modify, and delete their restaurant data.    
     
-Features
+*Features*
 
 - What features are required for your minimum viable product?
+
     1. User can create/register an authenticated account as a `passportHolder` by providing the following:
 
     * unique `username` - String
@@ -78,7 +81,7 @@ Foursquare City Guide lists restaurants in your area. If If you log in, you can 
 TripAdvisor can show lists of restaurants based on location: https://www.tripadvisor.com/Restaurants
 
 
-Design - Planning
+*Design - Planning*
 
 
 What design system will you use?
@@ -92,7 +95,7 @@ Sign Up/Sign In Page -> If authorized -> RestaurantList (maps through restaurant
 https://whimsical.com/HNmxFV3eMFijjWtbfhXJCF#2Ux7TurymNHYUXJZ54W4
 
 
-Frameworks - Libraries
+*Frameworks - Libraries*
 
 - What 3rd party frameworks are you considering using? 
 
@@ -110,7 +113,7 @@ Frameworks - Libraries
 
 No.
 
-Target Audience
+*Target Audience*
 
 - Who is your target audience? Be specific. 
 
@@ -132,7 +135,7 @@ Features they would like:
 
 “Maybe a link to yelp reviews.”
 
-    General comments:
+General comments:
 
 “This sounds awesome!”
 
