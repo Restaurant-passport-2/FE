@@ -13,14 +13,15 @@ import RestaurantList from './components/RestaurantList';
 function App() {
   return (
     <div className="App">
+      <Header />
+      <Login />
+      
       <Router>
         <Route path = '/signup' component = {SignUp} />
         <Route path='/login' component={Login} />
         <Route path='/restaurants' component={RestaurantList} />
         
       </Router>
-      <Header />
-      <Login />
       <Footer />
       
     </div>
