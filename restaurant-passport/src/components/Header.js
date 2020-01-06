@@ -11,10 +11,10 @@ export default function Header(props) {
                 </div>
             <h1>Restaurant Passport</h1>
             <nav>
-                <NavLink to='/signup' activeClass='active'>Sign Up</NavLink>
-                <NavLink to='/login' activeClass='active'>Log In</NavLink>
-                <NavLink to='/login' activeClass='active'>Sign Out</NavLink>
-                <NavLink to='/restaurants' activeClass='active'>My Passport</NavLink>   
+                <NavLink to='/signup' activeClassName='active'>Sign Up</NavLink>
+                <NavLink to='/login' activeClassName='active'>Log In</NavLink>
+                <NavLink to='/login' activeClassName='active'>Sign Out</NavLink>
+                <NavLink to='/restaurants' activeClassName='active'>My Passport</NavLink>   
             </nav>    
         </header>
     );
