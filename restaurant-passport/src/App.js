@@ -15,14 +15,15 @@ import Restaurant from './components/Restaurant';
 function App() {
   return (
     <div className="App">
+      <Header />
+      <Login />
+      
       <Router>
         <Route path = '/signup' component = {SignUp} />
         <Route path='/login' component={Login} />
         <PrivateRoute path='/restaurants' component={RestaurantList} />
         <PrivateRoute path='/restaurants/:restaurantId' component={Restaurant} />
       </Router>
-      <Header />
-      <Login />
       <Footer />
       
     </div>
