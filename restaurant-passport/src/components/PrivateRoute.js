@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {Route, Redirect} from 'react-router-dom';
 import {axiosWithAuth} from '../utils/axiosWithAuth';
 
 const PrivateRoute = ({component: Component, ...rest}) => {
-    const [isLogged, setIsLogged] = useState(rest.user.isLogged || null);
+    const [isLogged, setIsLogged] = useState( null);
+    //rest.user.isLogged ||
 
     useEffect(() => {
-        if(rest.user.isLogged === null || !rest.user.isLogged) {
+        if(!isLogged) {
+            //(rest.user.isLogged === null|| !rest.user.isLogged)
             axiosWithAuth()
             .get('https://restaurant-passport-2.herokuapp.com/api/auth/authenticated')
             .then(res => {
