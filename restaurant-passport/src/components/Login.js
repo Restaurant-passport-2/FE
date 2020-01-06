@@ -1,6 +1,8 @@
 import React, { useEffect, useState} from "react";
 import axios from 'axios';
 
+import table from '../images/table.jpg';
+
 export default function Login() {
   const [user, setUser] = React.useState({
     username: "",
@@ -55,7 +57,7 @@ export default function Login() {
             </div>
             <button role="submit">Login</button>
         </form>
-
+    <img src={table} alt="table with food" />
     </div>
   );
   }
