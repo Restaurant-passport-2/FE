@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Capriola&display=swap');
+
 .App {
   text-align: center;
+  font-family: 'Capriola', sans-serif;
 }
 
 header {
@@ -7,10 +10,12 @@ header {
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
+  background: #F79905;
 }
 
 header .img-container {
   width: 4rem;
+  
 }
 
 img {
@@ -22,8 +27,21 @@ nav {
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
+  padding: 2rem;
+  
+ 
 }
 
-nav p {
+nav a {
   margin-right: 2rem;
+  text-decoration: none;
+  color: #44BF9C;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 0.5rem;
+  border-radius: 3px;
+
+}
+
+a.active {
+  font-style: bold;
 }

@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import RestaurantList from './components/RestaurantList';
-import { tsPropertySignature } from '@babel/types';
+
 
 
 function App() {
