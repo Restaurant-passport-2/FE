@@ -17,34 +17,22 @@ export default function Login() {
         ])
       
       
-        const [isEditing, setIsEditing] = React.useState(false)
-        const [teamMemberToBeEdited, setTeamMemberToBeEdited] = React.useState({})
-      
-        const handleEdit = (teamMember) => {
-          setIsEditing(true)
-          setTeamMemberToBeEdited(teamMember)
-        }
-        const handleDelete = (teamMemberToDelete) => {
-          setTeamMembers(teamMembers.filter(member =>  member.name !== teamMemberToDelete.name ))
-        }
+        
       
         return (
           <div className="App">
             <h1>Login Info</h1>
       
             <NewTeamMemberForm 
-              isEditing={isEditing}
-              setIsEditing={setIsEditing}
+           
               teamMembers={teamMembers} 
               setTeamMembers={setTeamMembers}
-              teamMemberToBeEdited={teamMemberToBeEdited}
-              setTeamMemberToBeEdited={setTeamMemberToBeEdited}
+            
             />
       
             <TeamMembers 
               teamMembers={teamMembers} 
-              handleEdit={handleEdit}
-              handleDelete={handleDelete}
+           
              />
           </div>
         );
@@ -59,7 +47,7 @@ export default function Login() {
       
         const handleSubmit = (event) => {
           event.preventDefault()
-          axios.post("https://restaurant-passport-2.herokuapp.com/auth/login", newTeamMember)
+          axios.post("https://restaurant-passport-2.herokuapp.com/api/auth/login", newTeamMember)
           .then(response =>{
               console.log(response)
 
@@ -68,23 +56,7 @@ export default function Login() {
               console.log(err)
           })
 
-        //   if (props.isEditing) {
-        //     props.setTeamMembers(props.teamMembers.map(member => {
-        //       return (member.name === props.teamMemberToBeEdited.name) 
-        //               ? newTeamMember
-        //               : member
-        //     }))
-      
-        //     props.setIsEditing(false)
-        //   } else {
-        //       // add a new team member
-        //       props.setTeamMembers([...props.teamMembers, newTeamMember])
-        //   }
-        //   setNewTeamMember({
-        //     name: "",
-        //     email: "",
-        //     role: ""
-        //   })
+        
         }
       
         const handleChange = (event) => {
@@ -106,7 +78,7 @@ export default function Login() {
       
             <div className="inputContainer">
               <input 
-                type="text"
+                type="password"
                 name="password"
                 placeholder="enter password here"
                 onChange={handleChange}
@@ -124,14 +96,7 @@ export default function Login() {
       
       function TeamMember({member, handleEdit, handleDelete}) { return (
         <div className="team-member">
-          {/* <span><strong>Name:</strong> <p>{member.name}</p></span>
-          <span><strong>Email:</strong>  <p>{member.email}</p></span>
-          <span><strong>Role:</strong><p>{member.role}</p></span> */}
-      
-          {/* <div className="edit/delete">
-            <button onClick={handleEdit.bind(null, member)}>Edit</button>
-            <button onClick={() => handleDelete(member)}>Delete</button>
-          </div> */}
+         
         </div>
       )}
       
