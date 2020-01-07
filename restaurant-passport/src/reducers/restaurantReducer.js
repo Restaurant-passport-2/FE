@@ -12,23 +12,22 @@ import {  SIGNUP_USER_START,
 } from '../actions/actions';
 
 const initialState = {
-    user: {
-        username: '',
-        email: '',
-        city: '',
-        zip: '',
-        passport: [],
-        isLoggedIn: false,
-        isSigningUp: false,
-        isLoggingIn: false, 
-        error: ''
-    },
-    
+    username: '',
+    email: '',
+    city: '',
+    zip: '',
+    passport: [],
+    isLoggedIn: false,
+    isSigningUp: false,
+    isLoggingIn: false,
+    isLoggingOut: false, 
+    error: ''
 }
+    
 
 
 const restaurantReducer = (state = initialState, action) => {
-    console.log('restraurantReducter firing', state, action);
+    console.log('restraurantReducer firing', state, action);
     switch( action.type) {
         case SIGNUP_USER_START:
             return { 
@@ -74,6 +73,28 @@ const restaurantReducer = (state = initialState, action) => {
                 isLoggedIn: false,
                 isLoggingIn: false,
                 error: 'Login User Failure'
+            };
+        case LOGOUT_USER_START:
+            return {
+                ...state,
+                isLoggingOut: true,
+            };
+        case LOGOUT_USER_SUCCESS:
+            return {
+                ...state,
+                isLoggingOut: false,
+                isLoggedIn: false,
+                username: '',
+                email: '',
+                city: '',
+                zip: '',
+                passport: []
+            };
+        case LOGOUT_USER_FAILURE:
+            return {
+                ...state,
+                isLoggingOut: false,
+                isLoggedIn: true
             };
         default:
             return state;

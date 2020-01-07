@@ -2,7 +2,10 @@ import React from "react";
 import logo from '../images/logo.png';
 import {NavLink } from 'react-router-dom';
 
+import { logoutUser } from '../actions/actions';
+
 // <NavLink to='/signup' activeClassName='active'>Sign Up</NavLink>
+//<NavLink to='/' activeClassName='active'>Sign Out</NavLink>
 
 export default function Header(props) {
     return (
@@ -14,8 +17,9 @@ export default function Header(props) {
             <nav>
                
                 <NavLink to='/' activeClassName='active'>Log In</NavLink>
-                <NavLink to='/' activeClassName='active'>Sign Out</NavLink>
-                <NavLink to='/restaurants' activeClassName='active'>My Passport</NavLink>   
+                
+                <NavLink to='/restaurants' activeClassName='active'>My Passport</NavLink> 
+                <button onClick={logoutUser}>Log Out</button> 
             </nav>    
         </header>
     );

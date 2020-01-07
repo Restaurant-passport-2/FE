@@ -1,5 +1,6 @@
 import React, { useEffect, useState} from "react";
 import axios from 'axios';
+import { signupUser } from '../actions/actions';
 
 export default function SignUp() {
   const [newUser, setNewUser] = useState({
@@ -12,8 +13,9 @@ export default function SignUp() {
   });
 
   const handleSubmit = (event) => {
-    event.preventDefault()
-    axios.post("https://restaurant-passport-2.herokuapp.com/api/auth/signup", newUser)
+    event.preventDefault();
+    console.log(newUser);
+    /*axios.post("https://restaurant-passport-2.herokuapp.com/api/auth/signup", newUser)
         .then(response =>{
             console.log(response)
             localStorage.setItem('token', response.data.token);
@@ -21,6 +23,8 @@ export default function SignUp() {
         .catch(err => {
             console.log(err)
         });
+    */
+    signupUser(newUser);
   };
 
   const handleChange = (event) => {

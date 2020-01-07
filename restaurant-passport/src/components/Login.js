@@ -1,7 +1,7 @@
 import React, { useEffect, useState} from "react";
 import axios from 'axios';
 
-import table from '../images/table.jpg';
+import { loginUser } from '../actions/actions';
 
 export default function Login() {
   const [user, setUser] = React.useState({
@@ -11,6 +11,7 @@ export default function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    /*
     axios.post("https://restaurant-passport-2.herokuapp.com/api/auth/login", user)
     .then(response =>{
         console.log(response)
@@ -19,6 +20,9 @@ export default function Login() {
     .catch(err => {
         console.log(err)
     });
+    */
+    console.log(user);
+    loginUser(user);
   };
 
   const handleChange = (event) => {
