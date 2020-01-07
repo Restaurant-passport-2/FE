@@ -32,6 +32,8 @@ function App(props) {
         </div>
       }
       
+      {props.isLoggedIn && <RestaurantList />}
+      
       
       
         <Route path = '/signup' component = {SignUp} />
