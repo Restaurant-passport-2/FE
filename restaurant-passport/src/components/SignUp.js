@@ -14,10 +14,13 @@ function SignUp(props) {
   });
 
   const handleSubmit = (event) => {
+
+
     event.preventDefault();
     console.log(newUser);
     /*axios.post("https://restaurant-passport-2.herokuapp.com/api/auth/signup", newUser)
         .then(response =>{
+
             console.log(response)
             localStorage.setItem('token', response.data.token);
         })

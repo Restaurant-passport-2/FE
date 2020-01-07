@@ -149,7 +149,7 @@ function AddRestaurantForm(props) {
                 <label htmlFor="visited">Visited: </label>
                 <input
                   required 
-                  type="text"
+                  type="checkbox"
                   name="visited"
                   id="visited"
                   placeholder=""
