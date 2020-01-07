@@ -16,7 +16,7 @@ export default function AddRestaurant() {
     
       const handleSubmit = (event) => {
         event.preventDefault()
-        axios.post("https://restaurant-passport-2.herokuapp.com/api/auth/login", user)
+        axios.post("https://restaurant-passport-2.herokuapp.com/api/auth/login", restaurantName)
         .then(response =>{
             console.log(response)
     
@@ -34,9 +34,9 @@ export default function AddRestaurant() {
         <div className="App">
           <h1>Access Your Passport</h1>
           <form onSubmit={handleSubmit}>
-              <legend>Log In</legend>
+              <legend>Add Restaurant</legend>
               <div className="inputContainer">
-                <label htmlFor="username">Username: </label>
+                <label htmlFor="restaurantname">Restaurant Name: </label>
                 <input
                   required 
                   type="text"
@@ -44,12 +44,12 @@ export default function AddRestaurant() {
                   id="restaurantname"
                   placeholder="enter restaurant name here"
                   onChange={handleChange}
-                  value={user.restaurantname}
+                  value={restaurantName.restaurantname}
                 />
               </div>
           
               <div className="inputContainer">
-                <label htmlFor="password">Password: </label>
+                <label htmlFor="city">City: </label>
                   <input
                     required 
                     type="text"
@@ -57,7 +57,7 @@ export default function AddRestaurant() {
                     id="city"
                     placeholder="enter city here"
                     onChange={handleChange}
-                    value={user.city}
+                    value={restaurantName.city}
                   />
                 </div>
 
