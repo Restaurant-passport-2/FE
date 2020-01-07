@@ -5,6 +5,10 @@
   font-family: 'Capriola', sans-serif;
 }
 
+h1 {
+  letter-spacing: 0.12rem;
+  word-spacing: 0.6rem;
+}
 header {
   display: flex;
   flex-flow: row wrap;
@@ -135,4 +139,11 @@ button:active {
 }
 
 
-
+@media (max-width: 950px) {
+  form {
+    width: 80%;
+  }
+  .signUpPage h1, .loginPage h1 {
+    width: 80%;
+  }
+}
