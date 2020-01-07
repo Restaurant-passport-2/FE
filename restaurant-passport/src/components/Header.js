@@ -2,6 +2,7 @@ import React from "react";
 import logo from '../images/logo.png';
 import {NavLink } from 'react-router-dom';
 
+// <NavLink to='/signup' activeClassName='active'>Sign Up</NavLink>
 
 export default function Header(props) {
     return (
@@ -11,9 +12,9 @@ export default function Header(props) {
                 </div>
             <h1>Restaurant Passport</h1>
             <nav>
-                <NavLink to='/signup' activeClassName='active'>Sign Up</NavLink>
-                <NavLink to='/login' activeClassName='active'>Log In</NavLink>
-                <NavLink to='/login' activeClassName='active'>Sign Out</NavLink>
+               
+                <NavLink to='/' activeClassName='active'>Log In</NavLink>
+                <NavLink to='/' activeClassName='active'>Sign Out</NavLink>
                 <NavLink to='/restaurants' activeClassName='active'>My Passport</NavLink>   
             </nav>    
         </header>
