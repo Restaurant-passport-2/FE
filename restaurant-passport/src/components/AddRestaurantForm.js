@@ -62,7 +62,7 @@ export default function AddRestaurant() {
                 </div>
 
                 <div className="inputContainer">
-                <label htmlFor="username">Username: </label>
+                <label htmlFor="zipcode">Zipcode: </label>
                 <input
                   required 
                   type="text"
@@ -70,13 +70,13 @@ export default function AddRestaurant() {
                   id="zipcode"
                   placeholder="enter zipcode here"
                   onChange={handleChange}
-                  value={user.zipcode}
+                  value={restaurantName.zipcode}
                 />
               </div>
 
 
               <div className="inputContainer">
-                <label htmlFor="username">Username: </label>
+                <label htmlFor="streetaddress">Street Address: </label>
                 <input
                   required 
                   type="text"
@@ -84,12 +84,12 @@ export default function AddRestaurant() {
                   id="streetaddress"
                   placeholder="enter address here"
                   onChange={handleChange}
-                  value={user.streetaddress}
+                  value={restaurantName.streetaddress}
                 />
               </div>
 
               <div className="inputContainer">
-                <label htmlFor="username">Username: </label>
+                <label htmlFor="phonenumber">Phone Number: </label>
                 <input
                   required 
                   type="text"
@@ -97,12 +97,12 @@ export default function AddRestaurant() {
                   id="phonenumber"
                   placeholder="enter phone number here"
                   onChange={handleChange}
-                  value={user.phonenumber}
+                  value={restaurantName.phonenumber}
                 />
               </div>
 
               <div className="inputContainer">
-                <label htmlFor="username">Username: </label>
+                <label htmlFor="website">URL: </label>
                 <input
                   required 
                   type="text"
@@ -110,12 +110,12 @@ export default function AddRestaurant() {
                   id="website"
                   placeholder="enter website here"
                   onChange={handleChange}
-                  value={user.website}
+                  value={restaurantName.website}
                 />
               </div>
 
               <div className="inputContainer">
-                <label htmlFor="username">Username: </label>
+                <label htmlFor="myrating">My Rating: </label>
                 <input
                   required 
                   type="text"
@@ -123,12 +123,12 @@ export default function AddRestaurant() {
                   id="myrating"
                   placeholder="enter 1-5 here"
                   onChange={handleChange}
-                  value={user.myrating}
+                  value={restaurantName.myrating}
                 />
               </div>
 
               <div className="inputContainer">
-                <label htmlFor="username">Username: </label>
+                <label htmlFor="notes">Notes: </label>
                 <input
                   required 
                   type="text"
@@ -136,12 +136,12 @@ export default function AddRestaurant() {
                   id="notes"
                   placeholder="notes"
                   onChange={handleChange}
-                  value={user.notes}
+                  value={restaurantName.notes}
                 />
               </div>
 
               <div className="inputContainer">
-                <label htmlFor="username">Username: </label>
+                <label htmlFor="visited">Visited: </label>
                 <input
                   required 
                   type="text"
@@ -149,7 +149,7 @@ export default function AddRestaurant() {
                   id="visited"
                   placeholder=""
                   onChange={handleChange}
-                  value={user.visited}
+                  value={restaurantName.visited}
                 />
               </div>
 
