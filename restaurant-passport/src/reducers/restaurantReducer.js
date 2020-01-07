@@ -8,7 +8,20 @@ import {  SIGNUP_USER_START,
 
         LOGOUT_USER_START,
         LOGOUT_USER_SUCCESS,
-        LOGOUT_USER_FAILURE
+        LOGOUT_USER_FAILURE,
+
+        ADD_RESTAURANT_START,
+        ADD_RESTAURANT_SUCCESS,
+        ADD_RESTAURANT_FAILURE,
+
+        EDIT_RESTAURANT_START,
+        EDIT_RESTAURANT_SUCCESS,
+        EDIT_RESTAURANT_FAILURE,
+
+        DELETE_RESTAURANT_START,
+        DELETE_RESTAURANT_SUCCESS,
+        DELETE_RESTAURANT_FAILURE
+
 } from '../actions/actions';
 
 const initialState = {
@@ -20,7 +33,10 @@ const initialState = {
     isLoggedIn: false,
     isSigningUp: false,
     isLoggingIn: false,
-    isLoggingOut: false, 
+    isLoggingOut: false,
+    isAddingRestaurant: false,
+    isEditingRestaurant: false,
+    isDeletingRestaurant: false, 
     error: ''
 }
     
@@ -95,6 +111,57 @@ const restaurantReducer = (state = initialState, action) => {
                 ...state,
                 isLoggingOut: false,
                 isLoggedIn: true
+            };
+        case ADD_RESTAURANT_START:
+            return {
+                ...state,
+                isAddingRestaurant: true
+            };
+        case ADD_RESTAURANT_SUCCESS:
+            // TODO: add restaurant to passport in state OR get whole new passport from response, depending on API
+            return {
+                ...state,
+                isAddingRestaurant: false
+            };
+        case ADD_RESTAURANT_FAILURE:
+            return {
+                ...state,
+                isAddingRestaurant: false,
+                error: 'Adding Restaurant Failure'
+            };
+        case EDIT_RESTAURANT_START:
+                return {
+                    ...state,
+                    isEditingRestaurant: true
+                };
+        case EDIT_RESTAURANT_SUCCESS:
+            // TODO: get whole new passport from response, probably
+            return {
+                ...state,
+                isEditingRestaurant: false
+            };
+        case EDIT_RESTAURANT_FAILURE:
+            return {
+                ...state,
+                isEditingRestaurant: false,
+                error: 'Editing Restaurant Failure'
+            };
+        case DELETE_RESTAURANT_START:
+                return {
+                    ...state,
+                    isDeletingRestaurant: true
+                };
+        case DELETE_RESTAURANT_SUCCESS:
+            // TODO: get whole new passport from response, probably
+            return {
+                ...state,
+                isDeletingRestaurant: false
+            };
+        case DELETE_RESTAURANT_FAILURE:
+            return {
+                ...state,
+                isDeletingRestaurant: false,
+                error: 'Deleting Restaurant Failure'
             };
         default:
             return state;
