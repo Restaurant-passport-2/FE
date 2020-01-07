@@ -8,6 +8,7 @@ const RestaurantList = () => {
 return(
     <>
     <h1>My Passport</h1>
+    <AddRestaurantForm />
     <div>
         {restaurants.map(restaurant =>
             <Restaurant 
