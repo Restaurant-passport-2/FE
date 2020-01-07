@@ -32,7 +32,8 @@ const Restaurant = () => {
             <form>
              <input type='checkbox'
             name='visited'
-            value='visited'/>Visited
+            value='visited'
+            />Visited?
             </form>
             {state.visited && <div className='stamp-box'><img src={ OrangeCheck } alt='passport stamp' /></div>}
         </div>
