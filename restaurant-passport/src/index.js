@@ -6,11 +6,13 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router} from "react-router-dom";
 
 import {Provider} from 'react-redux';
-import {createStore} from 'redux';
+import {createStore,  applyMiddleware} from 'redux';
+import thunk from "redux-thunk";
+import logger from "redux-logger";
 
 import {restaurantReducer} from './reducers/restaurantReducer';
 
-const store = createStore(restaurantReducer);
+const store = createStore(restaurantReducer, applyMiddleware(thunk, logger));
 
 
 ReactDOM.render(

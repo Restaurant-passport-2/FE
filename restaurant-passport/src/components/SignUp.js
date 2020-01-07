@@ -1,8 +1,6 @@
 import React, { useEffect, useState} from "react";
 import axios from 'axios';
 
-import table2 from '../images/table2.jpg';
-
 export default function SignUp() {
   const [newUser, setNewUser] = useState({
     name: "",
@@ -18,6 +16,7 @@ export default function SignUp() {
     axios.post("https://restaurant-passport-2.herokuapp.com/api/auth/signup", newUser)
         .then(response =>{
             console.log(response)
+            localStorage.setItem('token', response.data.token);
         })
         .catch(err => {
             console.log(err)
