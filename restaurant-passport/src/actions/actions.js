@@ -1,7 +1,15 @@
-export const ADD_ITEM = 'ADD_ITEM';
-export const REMOVE_ITEM = 'REMOVE_ITEM';
+// export const ADD_ITEM = 'ADD_ITEM';
+// export const REMOVE_ITEM = 'REMOVE_ITEM';
 
-export const addItem = (restaurant) => {
-    console.log(restaurant)
-    return{type:ADD_ITEM, payload: restaurant}
-}
+
+
+// export const addItem = (restaurant) => {
+//     console.log(restaurant)
+//     return{type:ADD_ITEM, payload: restaurant}
+// }
+
+
+export const LOGIN_USER = 'LOGIN_USER';
+export const LOGOUT_USER = 'LOGOUT_USER';
+
+export const loginUser

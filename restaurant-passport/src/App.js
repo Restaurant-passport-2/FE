@@ -26,12 +26,12 @@ function App() {
       {needsToSignUp? <SignUp /> : <Login />}
       
       
-      <Router>
+      
         <Route path = '/signup' component = {SignUp} />
         <Route path='/login' component={Login} />
         <PrivateRoute path='/restaurants' component={RestaurantList} />
         <PrivateRoute path='/restaurants/:restaurantId' component={Restaurant} />
-      </Router>
+     
       <Footer />
       
     </div>

@@ -14,7 +14,7 @@ export default function Login() {
     axios.post("https://restaurant-passport-2.herokuapp.com/api/auth/login", user)
     .then(response =>{
         console.log(response)
-
+      localStorage.setItem('token', response.data.token)
     })
     .catch(err => {
         console.log(err)
