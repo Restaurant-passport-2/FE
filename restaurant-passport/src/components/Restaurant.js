@@ -18,6 +18,7 @@ const Restaurant = () => {
         e.preventDefault()
     }
     return(
+       
         <div>
             <button onClick={handleClick}>Edit</button>
             <h3>{state.restaurantName}</h3>
@@ -26,7 +27,19 @@ const Restaurant = () => {
             <a href={state.website}>Visit our Website</a>
             <p>{state.rating}</p>
             <p>{state.notes}</p>
+            <form>
+             <input type='checkbox'
+            name='visited'
+            value='visited'/>Visited
+
+            </form>
         </div>
+       
+                
+           
+           
+         
+           
     )
 }
 
