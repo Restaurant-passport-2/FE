@@ -13,9 +13,12 @@ const state = {
     notes: ''
 }
 const Restaurant = () => {
+    const handleClick = () => {
+        console.log(`I've been clicked!`)
+    }
     return(
         <div>
-            <button onClick={}>Edit</button>
+            <button onClick={handleClick}>Edit</button>
             <h3>{state.restaurantName}</h3>
             <p>{state.streetAddress} <br/>{state.city} {state.zip}  </p>
             <p>{state.phone}</p>
