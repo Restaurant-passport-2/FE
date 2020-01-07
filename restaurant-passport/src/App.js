@@ -1,4 +1,4 @@
-import React from 'react';
+import React , { useState } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
 
@@ -13,10 +13,18 @@ import Restaurant from './components/Restaurant';
 
 
 function App() {
+  const [needsToSignUp, setNeedsToSignUp] = useState(false);
+
+  const handleClick = () => {
+    setNeedsToSignUp(!needsToSignUp);
+  }
+
   return (
     <div className="App">
       <Header />
-      <Login />
+      <button onClick={handleClick}>{!needsToSignUp? 'First-Time User? Create Your Passport': 'Back to Login'}</button>
+      {needsToSignUp? <SignUp /> : <Login />}
+      
       
       <Router>
         <Route path = '/signup' component = {SignUp} />
