@@ -1,10 +1,13 @@
 export const initialState = {
-    restaurant: {
-        name: 'string',
-        street: 'string',
-        city: 'string',
-        zip: 23453
-    }
+    user: {
+        username: '',
+        email: '',
+        city: '',
+        zip: '',
+        passport: [],
+        isLoggedIn: false,
+    },
+    
 }
 
 
