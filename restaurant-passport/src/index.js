@@ -10,7 +10,7 @@ import {createStore,  applyMiddleware} from 'redux';
 import thunk from "redux-thunk";
 import logger from "redux-logger";
 
-import {restaurantReducer} from './reducers/restaurantReducer';
+import restaurantReducer from './reducers/restaurantReducer';
 
 const store = createStore(restaurantReducer, applyMiddleware(thunk, logger));
 

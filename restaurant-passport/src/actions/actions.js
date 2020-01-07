@@ -18,14 +18,14 @@ export const LOGIN_USER_FAILURE = 'LOGIN_USER_FAILURE';
 
 export const LOGOUT_USER_START = 'LOGOUT_USER_START';
 export const LOGOUT_USER_SUCCESS = 'LOGOUT_USER_SUCCESS';
-export const LOGOUT_USER_SUCCESS = 'LOGOUT_USER_FAILURE';
+export const LOGOUT_USER_FAILURE = 'LOGOUT_USER_FAILURE';
 
 export const signupUser = (newUser) => dispatch => {
     dispatch( { type: SIGNUP_USER_START });
     axios
         .post("https://restaurant-passport-2.herokuapp.com/api/auth/signup", newUser)
-        .then(res => {
-            dispatch( { type: SIGNUP_USER_SUCCESS, payload: res.data.value});
+        .then(response => {
+            dispatch( { type: SIGNUP_USER_SUCCESS, payload: response.data});
             localStorage.setItem('token', response.data.token);
         })
         .catch(err => {
@@ -39,6 +39,9 @@ export const loginUser = (user) => dispatch => {
         .then(response =>{
             console.log(response)
             localStorage.setItem('token', response.data.token)
-            dispatch( {type: LOGIN_USER_SUCCESS, payload: err.response });
+            dispatch( {type: LOGIN_USER_SUCCESS, payload: response.data });
         })
+        .catch(err => {
+            dispatch( { type: LOGIN_USER_FAILURE, payload: err.response});
+        });
 };
