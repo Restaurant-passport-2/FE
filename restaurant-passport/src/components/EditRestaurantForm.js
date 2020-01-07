@@ -16,7 +16,7 @@ export default function AddRestaurant() {
     
       const handleSubmit = (event) => {
         event.preventDefault()
-        axios.post("https://restaurant-passport-2.herokuapp.com/api/auth/login", user)
+        axios.post("https://restaurant-passport-2.herokuapp.com/api/auth/login", restaurantName)
         .then(response =>{
             console.log(response)
     
