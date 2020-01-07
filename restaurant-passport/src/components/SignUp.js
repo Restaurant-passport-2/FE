@@ -16,8 +16,9 @@ export default function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault()
     axios.post("https://restaurant-passport-2.herokuapp.com/api/auth/signup", newUser)
-        .then(response =>{
+        .then(response =>{ 
             console.log(response)
+            localStorage.setItem('token', response.data.token);
         })
         .catch(err => {
             console.log(err)

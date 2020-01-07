@@ -32,7 +32,7 @@ export default function AddRestaurant() {
     
       return (
         <div className="App">
-          <h1>Access Your Passport</h1>
+          
           <form onSubmit={handleSubmit}>
               <legend>Add Restaurant</legend>
               <div className="inputContainer">
@@ -144,7 +144,7 @@ export default function AddRestaurant() {
                 <label htmlFor="visited">Visited: </label>
                 <input
                   required 
-                  type="text"
+                  type="checkbox"
                   name="visited"
                   id="visited"
                   placeholder=""
@@ -155,7 +155,7 @@ export default function AddRestaurant() {
 
                 <button role="submit">Login</button>
             </form>
-        <img src={table} alt="table with food" />
+       
         </div>
       );
 //     const [restaurantName, setRestaurantName] = React.useState([{}])
