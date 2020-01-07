@@ -1,9 +1,9 @@
 import React, { useEffect, useState} from "react";
 import axios from 'axios';
+import { signupUser } from '../actions/actions';
+import { connect } from "react-redux";
 
-import table2 from '../images/table2.jpg';
-
-export default function SignUp() {
+function SignUp(props) {
   const [newUser, setNewUser] = useState({
     name: "",
     username: "",
@@ -14,15 +14,21 @@ export default function SignUp() {
   });
 
   const handleSubmit = (event) => {
-    event.preventDefault()
-    axios.post("https://restaurant-passport-2.herokuapp.com/api/auth/signup", newUser)
-        .then(response =>{ 
+
+
+    event.preventDefault();
+    console.log(newUser);
+    /*axios.post("https://restaurant-passport-2.herokuapp.com/api/auth/signup", newUser)
+        .then(response =>{
+
             console.log(response)
             localStorage.setItem('token', response.data.token);
         })
         .catch(err => {
             console.log(err)
         });
+    */
+    props.signupUser(newUser);
   };
 
   const handleChange = (event) => {
@@ -116,4 +122,13 @@ export default function SignUp() {
     </div>
   );
 }
+
+const mapStateToProps = state => {
+  return state;
+};
+
+export default connect(
+  mapStateToProps,
+  { signupUser }
+)(SignUp);
   

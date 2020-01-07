@@ -1,6 +1,7 @@
 import React , { useState } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
+import { connect } from "react-redux";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -12,7 +13,7 @@ import Restaurant from './components/Restaurant';
 
 
 
-function App() {
+function App(props) {
   const [needsToSignUp, setNeedsToSignUp] = useState(false);
 
   const handleClick = () => {
@@ -22,20 +23,38 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <button onClick={handleClick}>{!needsToSignUp? 'First-Time User? Create Your Passport': 'Back to Login'}</button>
-      {needsToSignUp? <SignUp /> : <Login />}
+      
+      {props.isLoggedIn? null:
+      <div>
+        <button onClick={handleClick}>{!needsToSignUp? 'First-Time User? Create Your Passport': 'Back to Login'}
+        </button> 
+        {needsToSignUp? <SignUp /> : <Login />}
+        </div>
+      }
+      
+      {props.isLoggedIn && <RestaurantList />}
       
       
-      <Router>
+      
         <Route path = '/signup' component = {SignUp} />
         <Route path='/login' component={Login} />
         <PrivateRoute path='/restaurants' component={RestaurantList} />
         <PrivateRoute path='/restaurants/:restaurantId' component={Restaurant} />
-      </Router>
+     
       <Footer />
       
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    ...state,
+    isLoggedIn: state.isLoggedIn
+  }
+};
+
+export default connect(
+  mapStateToProps,
+  { }
+)(App);

@@ -70,11 +70,15 @@ form {
 .inputContainer {
   margin: 0.5rem auto;
   width: 90%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 input {
   font-family: 'Capriola', sans-serif;
-  width: 50%;
+  width: 55%;
   line-height: 2rem;
   padding-left: 0.5rem;
   border: none;
@@ -87,14 +91,16 @@ input::placeholder {
 }
 
 label {
-  width: 50%;
+  width: 30%;
   margin-right: 1rem;
   color: white;
+  text-align: left;
 }
 
 legend {
   color: white;
   font-size: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 .signUpPage {
@@ -146,4 +152,19 @@ button:active {
   .signUpPage h1, .loginPage h1 {
     width: 80%;
   }
+}
+
+/* Restaurant Card Styles */
+
+.restaurant-box {
+  border: 2px solid rgb(247, 153, 5);
+  border-radius: 5px;
+  padding: 0.75rem;
+  width: 45%;
+  margin: 1rem;
+}
+
+.stamp-box {
+  width: 5rem;
+  margin: 1rem auto;
 }
