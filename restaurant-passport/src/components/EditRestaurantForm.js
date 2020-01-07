@@ -1,7 +1,7 @@
 import React, { useEffect, useState} from "react";
 import axios from 'axios';
 
-export default function AddRestaurant() {
+export default function EditRestaurantForm() {
     const [restaurantName, setRestaurantName] = React.useState({
         restaurantname: "",
         city: "",
