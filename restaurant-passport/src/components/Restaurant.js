@@ -3,18 +3,19 @@ import React from 'react';
 import {EditRestaurantForm} from './EditRestaurantForm';
 
 const state = {
-    restaurantName: '',
-    streetAddress: '',
-    city: '',
-    zip: '',
-    phone: '',
-    website: '',
-    rating:'',
-    notes: ''
+    restaurantName: 'Chilangos',
+    streetAddress: '1835 Wildwood',
+    city: 'Jackson',
+    zip: '49201',
+    phone: '(517)395-2940',
+    website: 'wwww.chilangos.com',
+    rating:'5',
+    notes: `Best carnitas tacos Ive ever had!`
 }
 const Restaurant = () => {
-    const handleClick = () => {
+    const handleClick = (e) => {
         console.log(`I've been clicked!`)
+        e.preventDefault()
     }
     return(
         <div>
