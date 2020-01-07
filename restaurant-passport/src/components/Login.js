@@ -26,7 +26,7 @@ export default function Login() {
   };
 
   return (
-    <div className="App">
+    <div className='loginPage'>
       <h1>Access Your Passport</h1>
       <form onSubmit={handleSubmit}>
           <legend>Log In</legend>
@@ -57,7 +57,9 @@ export default function Login() {
             </div>
             <button role="submit">Login</button>
         </form>
-    <img src={table} alt="table with food" />
+    
     </div>
   );
   }
+
+  //<img src={table} alt="table with food" />
