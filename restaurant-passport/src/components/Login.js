@@ -4,7 +4,7 @@ import axios from 'axios';
 import { loginUser } from '../actions/actions';
 import { connect } from "react-redux";
 
-function Login() {
+function Login(props) {
   const [user, setUser] = React.useState({
     username: "",
     password: "",  
@@ -23,7 +23,7 @@ function Login() {
     });
     */
     console.log(user);
-    loginUser(user);
+    props.loginUser(user);
   };
 
   const handleChange = (event) => {

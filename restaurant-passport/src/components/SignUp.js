@@ -3,7 +3,7 @@ import axios from 'axios';
 import { signupUser } from '../actions/actions';
 import { connect } from "react-redux";
 
-function SignUp() {
+function SignUp(props) {
   const [newUser, setNewUser] = useState({
     name: "",
     username: "",
@@ -25,7 +25,7 @@ function SignUp() {
             console.log(err)
         });
     */
-    signupUser(newUser);
+    props.signupUser(newUser);
   };
 
   const handleChange = (event) => {

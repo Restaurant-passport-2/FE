@@ -20,7 +20,7 @@ function Header(props) {
                 <NavLink to='/' activeClassName='active'>Log In</NavLink>
                 
                 <NavLink to='/restaurants' activeClassName='active'>My Passport</NavLink> 
-                <button onClick={logoutUser}>Log Out</button> 
+                <button onClick={props.logoutUser}>Log Out</button> 
             </nav>    
         </header>
     );
