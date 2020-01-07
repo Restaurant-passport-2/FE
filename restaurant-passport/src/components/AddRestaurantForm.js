@@ -1,8 +1,10 @@
-import React, { useEffect, useState} from "react";
-import axios from 'axios';
+import React, { useState } from "react";
+//import axios from 'axios';
+import { addRestaurant } from '../actions/actions';
+import { connect } from "react-redux";
 
-export default function AddRestaurant(props) {
-    const [restaurantName, setRestaurantName] = React.useState({
+function AddRestaurantForm(props) {
+    const [restaurantName, setRestaurantName] = useState({
         restaurantname: "",
         city: "",
         zipcode: "",
@@ -15,7 +17,8 @@ export default function AddRestaurant(props) {
       });
     
       const handleSubmit = (event) => {
-        event.preventDefault()
+        event.preventDefault();
+        props.addRestaurant(restaurantName);
         /*
         axios.post("https://restaurant-passport-2.herokuapp.com/api/auth/login", restaurantName)
         .then(response =>{
@@ -160,6 +163,17 @@ export default function AddRestaurant(props) {
        
         </div>
       );
+      }
+
+  const mapStateToProps = state => {
+    return state;
+  };
+  
+  export default connect(
+    mapStateToProps,
+    { addRestaurant }
+  )(AddRestaurantForm);
+
 //     const [restaurantName, setRestaurantName] = React.useState([{}])
 
 
@@ -194,4 +208,4 @@ export default function AddRestaurant(props) {
 //     const handleSubmit = (event) => {
 //         event.preventDefault
 //     }
-}
+//
