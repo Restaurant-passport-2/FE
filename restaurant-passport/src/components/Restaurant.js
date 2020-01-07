@@ -1,4 +1,5 @@
 import React from 'react';
+import OrangeCheck from '../images/OrangeCheck.png';
 
 import {EditRestaurantForm} from './EditRestaurantForm';
 
@@ -10,7 +11,8 @@ const state = {
     phone: '(517)395-2940',
     website: 'wwww.chilangos.com',
     rating:'5',
-    notes: `Best carnitas tacos Ive ever had!`
+    notes: `Best carnitas tacos Ive ever had!`,
+    visited: true
 }
 const Restaurant = () => {
     const handleClick = (e) => {
@@ -19,7 +21,7 @@ const Restaurant = () => {
     }
     return(
        
-        <div>
+        <div className='restaurant-box'>
             <button onClick={handleClick}>Edit</button>
             <h3>{state.restaurantName}</h3>
             <p>{state.streetAddress} <br/>{state.city} {state.zip}  </p>
@@ -30,9 +32,10 @@ const Restaurant = () => {
             <form>
              <input type='checkbox'
             name='visited'
-            value='visited'/>Visited
-
+            value='visited'
+            />Visited?
             </form>
+            {state.visited && <div className='stamp-box'><img src={ OrangeCheck } alt='passport stamp' /></div>}
         </div>
        
                 

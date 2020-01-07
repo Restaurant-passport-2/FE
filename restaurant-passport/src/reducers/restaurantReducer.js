@@ -80,7 +80,7 @@ const restaurantReducer = (state = initialState, action) => {
                 username: action.payload.user.username,
                 email: action.payload.user.email,
                 city: action.payload.user.city,
-                zip: action.payload.user.zip,
+                zip: action.payload.user.zipcode,
                 passport: action.payload.user.passport
             };
         case LOGIN_USER_FAILURE:
