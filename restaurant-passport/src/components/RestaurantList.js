@@ -10,10 +10,11 @@ return(
     <h1>My Passport</h1>
     <AddRestaurantForm />
     <div>
-        {restaurants.map(restaurant =>
+        {/* {restaurants.map(restaurant =>
             <Restaurant 
             key={restaurant.id}
-            restaurant={restaurants}/>)}
+            restaurant={restaurants}/>)} */}
+            <Restaurant/>
     </div>
     </>
 )
