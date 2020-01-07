@@ -1,7 +1,7 @@
 import React, { useEffect, useState} from "react";
 import axios from 'axios';
 
-export default function AddRestaurant() {
+export default function AddRestaurant(props) {
     const [restaurantName, setRestaurantName] = React.useState({
         restaurantname: "",
         city: "",
@@ -16,6 +16,7 @@ export default function AddRestaurant() {
     
       const handleSubmit = (event) => {
         event.preventDefault()
+        /*
         axios.post("https://restaurant-passport-2.herokuapp.com/api/auth/login", restaurantName)
         .then(response =>{
             console.log(response)
@@ -24,6 +25,7 @@ export default function AddRestaurant() {
         .catch(err => {
             console.log(err)
         });
+        */
       };
     
       const handleChange = (event) => {
@@ -153,7 +155,7 @@ export default function AddRestaurant() {
                 />
               </div>
 
-                <button role="submit">Login</button>
+                <button role="submit">Submit Restaurant</button>
             </form>
        
         </div>

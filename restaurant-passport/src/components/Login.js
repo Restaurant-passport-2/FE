@@ -1,9 +1,10 @@
 import React, { useEffect, useState} from "react";
 import axios from 'axios';
 
-import table from '../images/table.jpg';
+import { loginUser } from '../actions/actions';
+import { connect } from "react-redux";
 
-export default function Login() {
+function Login(props) {
   const [user, setUser] = React.useState({
     username: "",
     password: "",  
@@ -11,6 +12,7 @@ export default function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    /*
     axios.post("https://restaurant-passport-2.herokuapp.com/api/auth/login", user)
     .then(response =>{
         console.log(response)
@@ -19,6 +21,9 @@ export default function Login() {
     .catch(err => {
         console.log(err)
     });
+    */
+    console.log(user);
+    props.loginUser(user);
   };
 
   const handleChange = (event) => {
@@ -62,4 +67,11 @@ export default function Login() {
   );
   }
 
-  //<img src={table} alt="table with food" />
+  const mapStateToProps = state => {
+    return state;
+  };
+
+  export default connect(
+    mapStateToProps,
+    { loginUser }
+  )(Login);
