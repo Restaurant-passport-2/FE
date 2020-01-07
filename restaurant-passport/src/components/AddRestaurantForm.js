@@ -1,10 +1,10 @@
-import React, { useEffect, useState} from "react";
-import axios from 'axios';
+import React, { useState } from "react";
+//import axios from 'axios';
 import { addRestaurant } from '../actions/actions';
 import { connect } from "react-redux";
 
 function AddRestaurantForm(props) {
-    const [restaurantName, setRestaurantName] = React.useState({
+    const [restaurantName, setRestaurantName] = useState({
         restaurantname: "",
         city: "",
         zipcode: "",
