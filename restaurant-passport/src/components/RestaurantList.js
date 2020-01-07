@@ -5,10 +5,18 @@ import AddRestaurantForm from './AddRestaurantForm';
 
 const RestaurantList = () => {
     const [restaurants, setRestaurants] = useState([])
+
+    const [addingRest, setAddingRest] = useState(false)
+
+    const handleButton = (e) => {
+        e.preventDefault();
+        setAddingRest(!addingRest)
+    }
 return(
     <>
     <h1>My Passport</h1>
-    <AddRestaurantForm />
+    <button onClick={handleButton}>{addingRest ? 'Cancel add': ' Add Restaurant' }</button>
+   {addingRest &&  <AddRestaurantForm />}
     <div>
         {/* {restaurants.map(restaurant =>
             <Restaurant 
