@@ -27,7 +27,7 @@ const initialState = {
 
 
 const restaurantReducer = (state = initialState, action) => {
-    console.log('restraurantReducer firing', state, action);
+    console.log('restaurantReducer firing', state, action);
     switch( action.type) {
         case SIGNUP_USER_START:
             return { 

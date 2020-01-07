@@ -2,8 +2,9 @@ import React, { useEffect, useState} from "react";
 import axios from 'axios';
 
 import { loginUser } from '../actions/actions';
+import { connect } from "react-redux";
 
-export default function Login() {
+function Login() {
   const [user, setUser] = React.useState({
     username: "",
     password: "",  
@@ -66,4 +67,11 @@ export default function Login() {
   );
   }
 
-  //<img src={table} alt="table with food" />
+  const mapStateToProps = state => {
+    return state;
+  };
+
+  export default connect(
+    mapStateToProps,
+    { loginUser }
+  )(Login);

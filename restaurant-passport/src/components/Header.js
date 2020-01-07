@@ -1,13 +1,14 @@
 import React from "react";
 import logo from '../images/logo.png';
 import {NavLink } from 'react-router-dom';
+import { connect } from "react-redux";
 
 import { logoutUser } from '../actions/actions';
 
 // <NavLink to='/signup' activeClassName='active'>Sign Up</NavLink>
 //<NavLink to='/' activeClassName='active'>Sign Out</NavLink>
 
-export default function Header(props) {
+function Header(props) {
     return (
         <header>
             <div className='img-container'>
@@ -24,3 +25,12 @@ export default function Header(props) {
         </header>
     );
 }
+
+const mapStateToProps = state => {
+    return state;
+};
+
+export default connect(
+    mapStateToProps,
+    { logoutUser }
+  )(Header);

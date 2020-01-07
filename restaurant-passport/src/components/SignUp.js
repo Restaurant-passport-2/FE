@@ -1,8 +1,9 @@
 import React, { useEffect, useState} from "react";
 import axios from 'axios';
 import { signupUser } from '../actions/actions';
+import { connect } from "react-redux";
 
-export default function SignUp() {
+function SignUp() {
   const [newUser, setNewUser] = useState({
     name: "",
     username: "",
@@ -118,4 +119,13 @@ export default function SignUp() {
     </div>
   );
 }
+
+const mapStateToProps = state => {
+  return state;
+};
+
+export default connect(
+  mapStateToProps,
+  { signupUser }
+)(SignUp);
   
