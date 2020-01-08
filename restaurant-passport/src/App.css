@@ -162,7 +162,7 @@ button:active {
 .all-restaurants-box {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: stretch;
 }
 

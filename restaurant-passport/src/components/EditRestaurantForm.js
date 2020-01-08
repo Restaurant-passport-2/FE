@@ -133,10 +133,10 @@ function EditRestaurantForm(props) {
               <div className="inputContainer">
                 <label htmlFor="stamped">Visited?: </label>
                 <input
-                  
                   type="checkbox"
                   name="stamped"
                   id="stamped"
+                  checked={restaurantName.stamped? 'checked' : null}
                   onChange={handleEdit}
                   value={restaurantName.stamped}
                 />
