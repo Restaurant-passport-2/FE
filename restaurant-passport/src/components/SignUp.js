@@ -13,21 +13,10 @@ function SignUp(props) {
   });
 
   const handleSubmit = (event) => {
-
-
     event.preventDefault();
-    console.log(newUser);
-    /*axios.post("https://restaurant-passport-2.herokuapp.com/api/auth/signup", newUser)
-        .then(response =>{
-
-            console.log(response)
-            localStorage.setItem('token', response.data.token);
-        })
-        .catch(err => {
-            console.log(err)
-        });
-    */
-    props.signupUser(newUser);
+    console.log(props.history);
+    props.signupUser(newUser, props.history);
+    props.toggleSignUp();
   };
 
   const handleChange = (event) => {

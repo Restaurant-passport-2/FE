@@ -14,23 +14,24 @@ import RestaurantPage from './components/RestaurantPage';
 
 
 function App(props) {
-  const [needsToSignUp, setNeedsToSignUp] = useState(false);
+  // const [needsToSignUp, setNeedsToSignUp] = useState(false);
 
-  const handleClick = () => {
-    setNeedsToSignUp(!needsToSignUp);
-  }
+  // const handleClick = () => {
+  //   setNeedsToSignUp(!needsToSignUp);
+  //   // props.history.push('/signup')
+  // }
 
   return (
     <div className="App">
       <Header />
       
-      {props.isLoggedIn? null:
+      {/* {props.isLoggedIn? null:
       <div>
         <button onClick={handleClick}>{!needsToSignUp? 'First-Time User? Create Your Passport': 'Back to Login'}
         </button> 
-        {/* {needsToSignUp? <SignUp /> : <Login />} */}
+        {needsToSignUp? <SignUp /> : <Login />}
         </div>
-      }
+      } */}
       
       
       

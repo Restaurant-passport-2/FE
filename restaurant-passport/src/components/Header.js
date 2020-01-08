@@ -18,7 +18,7 @@ function Header(props) {
             <h1>Restaurant Passport</h1>
             <nav>
                 <NavLink to='/restaurants' activeClassName='active'>My Passport</NavLink> 
-            {props.isLoggedIn && <button onClick={props.logoutUser}>Log Out</button>} 
+            <button onClick={props.logoutUser}>Log Out</button>
             </nav>    
         </header>
     );
