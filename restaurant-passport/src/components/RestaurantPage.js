@@ -24,12 +24,12 @@ const RestaurantPage = (props) => {
         let winner =  props.passport.filter(restaurant => ( Number(restaurant.restaurant_id) === Number(id))  
         )
         setCurrentRestaurant(winner[0]);
-    },[id])
+    },[id, props.passport])
 
     useEffect(() => {
         if (currentRestaurant) {setIsVisited(currentRestaurant.stamped)};
     }, [currentRestaurant])
-    
+
    console.log('This is your current restaurant',currentRestaurant)
 
 

@@ -2,7 +2,6 @@ import React, {useState } from 'react';
 import Restaurant from './Restaurant';
 import AddRestaurantForm from './AddRestaurantForm';
 import { connect } from "react-redux";
-import {Link} from 'react-router-dom';
 
 const RestaurantList = (props) => {
     // console.log('These are restaurant list props' ,props)

@@ -7,11 +7,11 @@ import LoveForkKnifeOrange from '../images/LoveForkKnifeOrange.png';
 
 import { deleteRestaurant } from '../actions/actions';
 
-import EditRestaurantForm from './EditRestaurantForm';
+//import EditRestaurantForm from './EditRestaurantForm';
 
 const Restaurant = (props) => {
     // console.log('restaurant props', props)
-    const [isEditing, setIsEditing] = useState(false);
+    //const [isEditing, setIsEditing] = useState(false);
     const [isVisited, setIsVisited] = useState(props.restaurant.stamped);
 
     const rows = [];
@@ -21,6 +21,7 @@ const Restaurant = (props) => {
     </div>);
     }
 
+    /*
     const handleClick = () => {
         console.log(`Time to toggle editing!`);
         setIsEditing(!isEditing);
@@ -37,6 +38,8 @@ const Restaurant = (props) => {
         setIsVisited(!isVisited);
         //TODO: Add functionality once the endpoint to do so is ready.
     }
+
+    */
 
     // const goToPage = () => {
     //     console.log(`Time to go to RestaurantPage for restaurant with id of ${props.restaurant.restaurant_id}`);
