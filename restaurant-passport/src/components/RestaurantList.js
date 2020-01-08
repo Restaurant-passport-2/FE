@@ -26,7 +26,7 @@ return(
         {props.passport.map(restaurant =>
             <Restaurant 
             key={restaurant.restaurant_id}
-            restaurant={restaurants}/>)
+            restaurant={restaurant}/>)
         }
     </div>
     </>
