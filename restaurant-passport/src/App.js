@@ -1,5 +1,5 @@
 import React , { useState } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import './App.css';
 import { connect } from "react-redux";
 

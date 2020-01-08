@@ -159,6 +159,12 @@ button:active {
 }
 
 /* Restaurant Card Styles */
+.all-restaurants-box {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: stretch;
+}
 
 .restaurant-box {
   border: 2px solid rgb(247, 153, 5);
