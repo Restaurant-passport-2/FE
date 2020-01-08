@@ -2,9 +2,11 @@ import React, { useState } from "react";
 
 import { loginUser } from '../actions/actions';
 import { connect } from "react-redux";
+import SignUp from './SignUp';
 
 function Login(props) {
   console.log('login props', props)
+  const [needsToSignUp, setNeedsToSignUp] = useState(false);
   const [user, setUser] = useState({
     username: "",
     password: "",  
@@ -20,8 +22,19 @@ function Login(props) {
     setUser({...user, [event.target.name]: event.target.value })
   };
 
+  const handleClick = () => {
+    setNeedsToSignUp(!needsToSignUp);
+    // props.history.push('/signup')
+  }
+
   return (
     <div className='loginPage'>
+
+      <div>
+        <button onClick={handleClick}>{!needsToSignUp? 'First-Time User? Create Your Passport': 'Back to Login'}
+        </button> 
+        {needsToSignUp? <SignUp /> : 
+        <div>
       <h1>Access Your Passport</h1>
       <form onSubmit={handleSubmit}>
           <legend>Log In</legend>
@@ -52,7 +65,9 @@ function Login(props) {
             </div>
             <button type="submit">Login</button>
         </form>
-    
+        </div>
+    } 
+    </div>
     </div>
   );
   }
