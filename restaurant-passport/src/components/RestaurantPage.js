@@ -26,6 +26,10 @@ const RestaurantPage = (props) => {
         setCurrentRestaurant(winner[0]);
     },[id])
 
+    useEffect(() => {
+        if (currentRestaurant) {setIsVisited(currentRestaurant.stamped)};
+    }, [currentRestaurant])
+    
    console.log('This is your current restaurant',currentRestaurant)
 
 
