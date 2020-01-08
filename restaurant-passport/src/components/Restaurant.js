@@ -7,6 +7,7 @@ import EditRestaurantForm from './EditRestaurantForm';
 
 const Restaurant = (props) => {
     const [isEditing, setIsEditing] = useState(false);
+    const [isVisited, setIsVisited] = useState(props.restaurant.stamped);
 
     const handleClick = () => {
         console.log(`Time to toggle editing!`);
@@ -19,25 +20,42 @@ const Restaurant = (props) => {
         props.deleteRestaurant(props.restaurant);
     }
 
+    const handleCheckboxChange = () => {
+        console.log(`Time to toggle the stamped status of ${props.restaurant.restaurant.name}`);
+        setIsVisited(!isVisited);
+        //TODO: Add functionality once the endpoint to do so is ready.
+    }
+
     return(
        
         <div className='restaurant-box'>
             <button onClick={handleClick}>{isEditing? 'Cancel Edit': 'Edit'}</button>
             <button onClick={startDelete}>Delete</button>
+            
             {isEditing && <EditRestaurantForm restaurant={props.restaurant} toggleEdit={handleClick}/>}
             <h3>{props.restaurant.restaurant.name}</h3>
+
+            {isVisited && <div className='stamp-box'><img src={ OrangeCheck } alt='passport stamp' /></div>}
             <p>{props.restaurant.restaurant.street_address} <br/>{props.restaurant.city} {props.restaurant.restaurant.zipcode}  </p>
             <p>{props.restaurant.phone_number}</p>
             <a href={props.restaurant.restaurant.website_url}>Visit the Website</a>
             <p>My rating: {props.restaurant.personal_rating}</p>
             <p>My notes: {props.restaurant.notes}</p>
+            
             <form>
-             <input type='checkbox'
-            name='visited'
-            value='visited'
-            />Visited?
+                <div className='inputContainer'>
+                <label htmlFor='visited'>Visited? </label>
+                <input type='checkbox'
+                    name='visited'
+                    value={isVisited}
+                    onChange={handleCheckboxChange}
+                    id='visited'
+                    checked={isVisited? 'checked': null}
+                />
+                
+                </div>
             </form>
-            {props.restaurant.stamped && <div className='stamp-box'><img src={ OrangeCheck } alt='passport stamp' /></div>}
+            
         </div>
        
                 
