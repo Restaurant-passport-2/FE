@@ -1,9 +1,9 @@
-import React, {useState, UseEffect} from 'react';
+import React, {useState } from 'react';
 import Restaurant from './Restaurant';
-import {axiosWithAuth} from '../utils/axiosWithAuth';
 import AddRestaurantForm from './AddRestaurantForm';
+import { connect } from "react-redux";
 
-const RestaurantList = () => {
+const RestaurantList = (props) => {
     const [restaurants, setRestaurants] = useState([])
 
     const [addingRest, setAddingRest] = useState(false)
@@ -17,15 +17,30 @@ return(
     <h1>My Passport</h1>
     <button onClick={handleButton}>{addingRest ? 'Cancel add': ' Add Restaurant' }</button>
    {addingRest &&  <AddRestaurantForm />}
+   <div>{props.passport.map(restaurant => {
+       return (
+           <p key={restaurant.restaurant_id}>{restaurant.restaurant.name}</p>
+       )})}
+    </div>
     <div>
-        {/* {restaurants.map(restaurant =>
+        {props.passport.map(restaurant =>
             <Restaurant 
-            key={restaurant.id}
-            restaurant={restaurants}/>)} */}
-            <Restaurant/>
+            key={restaurant.restaurant_id}
+            restaurant={restaurants}/>)
+        }
     </div>
     </>
 )
 }
 
-export default RestaurantList;
+const mapStateToProps = state => {
+    return {
+      ...state,
+      passport: state.passport
+    }
+  };
+  
+export default connect(
+    mapStateToProps,
+    { }
+  )(RestaurantList);
