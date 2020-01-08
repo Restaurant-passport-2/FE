@@ -56,7 +56,7 @@ const Restaurant = (props) => {
             </div>
             <p>My notes: {props.restaurant.notes}</p>
             
-            <form>
+            <form className='visited-form'>
                 <div className='inputContainer'>
                 <label htmlFor='visited'>Visited? </label>
                 <input type='checkbox'
