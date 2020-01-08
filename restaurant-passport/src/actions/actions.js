@@ -80,7 +80,7 @@ export const addRestaurant = (restaurant) => dispatch => {
     console.log("Ready to be sent : ", restaurant);
     axiosWithAuth().post('https://restaurant-passport-2.herokuapp.com/api/passport/entry', restaurant)
     .then(response => {
-        console.log(response)
+        console.log("Here is the response after adding a restaurant", response);
         dispatch({type: ADD_RESTAURANT_SUCCESS, payload: response.data.entries})
     })
     .catch(err => {

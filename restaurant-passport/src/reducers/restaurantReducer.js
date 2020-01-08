@@ -125,6 +125,7 @@ const restaurantReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isAddingRestaurant: false,
+                passport: action.payload,
                 error: ''
             };
         case ADD_RESTAURANT_FAILURE:
