@@ -86,12 +86,12 @@ export const addRestaurant = (restaurant) => dispatch => {
         console.log('This is an error in add restaurant', err);
         dispatch({type: ADD_RESTAURANT_FAILURE, payload: err})
     })
-    //more to come
+    
 };
 
 export const editRestaurant = (restaurant) => dispatch => {
     dispatch( { type: EDIT_RESTAURANT_START});
-   
+   //more to come
 };
 
 export const deleteRestaurant = (restaurant) => dispatch => {
