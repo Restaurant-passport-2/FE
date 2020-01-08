@@ -7,6 +7,7 @@ import { logoutUser } from '../actions/actions';
 
 // <NavLink to='/signup' activeClassName='active'>Sign Up</NavLink>
 //<NavLink to='/' activeClassName='active'>Sign Out</NavLink>
+// <NavLink to='/' activeClassName='active'>Log In</NavLink>
 
 function Header(props) {
     return (
@@ -16,18 +17,18 @@ function Header(props) {
                 </div>
             <h1>Restaurant Passport</h1>
             <nav>
-               
-                <NavLink to='/' activeClassName='active'>Log In</NavLink>
-                
-                <NavLink to='/restaurants' activeClassName='active'>My Passport</NavLink> 
-                <button onClick={props.logoutUser}>Log Out</button> 
+                <NavLink to='/' activeClassName='active'>My Passport</NavLink> 
+            {props.isLoggedIn && <button onClick={props.logoutUser}>Log Out</button>} 
             </nav>    
         </header>
     );
 }
 
 const mapStateToProps = state => {
-    return state;
+    return {
+        ...state,
+    isLoggedIn: state.isLoggedIn
+};
 };
 
 export default connect(

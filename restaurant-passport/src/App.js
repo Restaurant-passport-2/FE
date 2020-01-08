@@ -9,7 +9,7 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import RestaurantList from './components/RestaurantList';
 import PrivateRoute from './components/PrivateRoute';
-import Restaurant from './components/Restaurant';
+import RestaurantPage from './components/RestaurantPage';
 
 
 
@@ -39,7 +39,7 @@ function App(props) {
         <Route path = '/signup' component = {SignUp} />
         <Route path='/login' component={Login} />
         <PrivateRoute path='/restaurants' component={RestaurantList} />
-        <PrivateRoute path='/restaurants/:restaurantId' component={Restaurant} />
+        <PrivateRoute path='/restaurants/:restaurantId' component={RestaurantPage} />
      
       <Footer />
       
