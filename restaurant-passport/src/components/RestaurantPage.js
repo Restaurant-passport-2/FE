@@ -13,7 +13,7 @@ import EditRestaurantForm from './EditRestaurantForm';
 const RestaurantPage = (props) => {
     console.log('Restaurant page props', props)
 
-    const [currentRestaurant, setCurrentRestaurant]= useState({});
+    const [currentRestaurant, setCurrentRestaurant]= useState(null);
 
     const id = props.match.params.restaurantId;
     //console.log('this is ID', id)
@@ -27,9 +27,14 @@ const RestaurantPage = (props) => {
    console.log('This is your current restaurant',currentRestaurant)
     
     return (
+        
         <div>
+            {console.log('currentRestaurant',currentRestaurant)}
         <h3>Restaurant Page {id} under construction...</h3>
-        {currentRestaurant && <p>{currentRestaurant.city}</p>}
+        {currentRestaurant && <h3>Name: {currentRestaurant.restaurant.name}</h3>}
+        {currentRestaurant && <p>City: {currentRestaurant.city}</p>}
+        {currentRestaurant && <p>Notes: {currentRestaurant.notes}</p>}
+        {currentRestaurant && <p>Rating: {currentRestaurant.personal_rating}</p>}
         </div>
     )
     

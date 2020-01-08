@@ -162,13 +162,14 @@ const restaurantReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isDeletingRestaurant: false,
+                passport: action.payload,
                 error: ''
             };
         case DELETE_RESTAURANT_FAILURE:
             return {
                 ...state,
                 isDeletingRestaurant: false,
-                error: 'Deleting Restaurant Failure'
+                error: action.payload
             };
         default:
             return state;

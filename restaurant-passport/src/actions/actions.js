@@ -100,5 +100,14 @@ export const editRestaurant = (restaurant) => dispatch => {
 export const deleteRestaurant = (restaurant) => dispatch => {
     dispatch( { type: DELETE_RESTAURANT_START});
     console.log('In deleteRestaurant in actions');
+    axiosWithAuth().delete(`https://restaurant-passport-2.herokuapp.com/api/passport/entry/${restaurant.passport_entry_id}`)
+    .then(response => {
+        console.log('delete action response', response)
+        dispatch({type: DELETE_RESTAURANT_SUCCESS, payload: response.data.entries})
+    })
+    .catch(err => {
+        console.log('delete action error', err)
+        dispatch({type: DELETE_RESTAURANT_FAILURE, payload: err.message})
+    })
     //more to come
 };
