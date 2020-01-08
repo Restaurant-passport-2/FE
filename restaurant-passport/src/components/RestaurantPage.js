@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { connect } from "react-redux";
 
+import { deleteRestaurant } from '../actions/actions';
+
+/*
 import OrangeCheck from '../images/OrangeCheck.png';
 import LoveForkKnifeOrange from '../images/LoveForkKnifeOrange.png';
 
-import { deleteRestaurant } from '../actions/actions';
-
 import EditRestaurantForm from './EditRestaurantForm';
+*/
 
 const RestaurantPage = (props) => {
     const id = props.match.params.restaurantId;
