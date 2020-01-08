@@ -97,5 +97,6 @@ export const editRestaurant = (restaurant) => dispatch => {
 
 export const deleteRestaurant = (restaurant) => dispatch => {
     dispatch( { type: DELETE_RESTAURANT_START});
+    console.log('In deleteRestaurant in actions');
     //more to come
 };
