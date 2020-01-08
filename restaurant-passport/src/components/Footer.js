@@ -9,7 +9,7 @@ export default function Footer() {
                 <a href='https://restaurant-passport-ui.netlify.com/about.html'>About Us</a>
                 <NavLink to='/restaurants'>My Passport</NavLink>
             </nav>
-            <p>Restaurant Passport copyright The Restaurant Passport Team</p>
+            <p>Restaurant Passport © The Restaurant Passport Team </p>
        </div>
     );
 }
