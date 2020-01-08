@@ -36,6 +36,13 @@ const Restaurant = (props) => {
         //TODO: Add functionality once the endpoint to do so is ready.
     }
 
+    const goToPage = () => {
+        console.log(`Time to go to RestaurantPage for restaurant with id of ${props.restaurant.restaurant_id}`);
+        //TODO: Add something like below to go to the RestaurantPage
+        //props.history.push(`/restaurants/${props.restaurant.restaurant_id}`);
+        
+    }
+
     return(
        
         <div className='restaurant-box'>
@@ -43,7 +50,7 @@ const Restaurant = (props) => {
             <button onClick={startDelete}>Delete</button>
 
             {isEditing && <EditRestaurantForm restaurant={props.restaurant} toggleEdit={handleClick}/>}
-            <h3>{props.restaurant.restaurant.name}</h3>
+            <h3 onClick={goToPage}>{props.restaurant.restaurant.name}</h3>
 
             {isVisited && <div className='stamp-box'><img src={ OrangeCheck } alt='passport stamp' /></div>}
             <p>{props.restaurant.restaurant.street_address} <br/>{props.restaurant.city} {props.restaurant.restaurant.zipcode}  </p>

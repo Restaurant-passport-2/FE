@@ -9,6 +9,11 @@ import { deleteRestaurant } from '../actions/actions';
 import EditRestaurantForm from './EditRestaurantForm';
 
 const RestaurantPage = (props) => {
+    const id = props.match.params.restaurantId;
+    return (
+        <h3>Restaurant Page {id} under construction...</h3>
+    )
+    /*
     const [isEditing, setIsEditing] = useState(false);
     const [isVisited, setIsVisited] = useState(props.restaurant.stamped);
 
@@ -78,6 +83,7 @@ const RestaurantPage = (props) => {
          
            
     )
+    */
 }
 
 const mapStateToProps = state => {
