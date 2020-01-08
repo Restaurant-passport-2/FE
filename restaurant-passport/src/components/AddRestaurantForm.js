@@ -20,6 +20,7 @@ function AddRestaurantForm(props) {
         console.log("This is our restaurant object", restaurantName);
         event.preventDefault();
         props.addRestaurant(restaurantName);
+        props.toggleAdd();
       };
     
       const handleChange = (event) => {
