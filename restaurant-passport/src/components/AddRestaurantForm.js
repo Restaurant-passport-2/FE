@@ -20,16 +20,6 @@ function AddRestaurantForm(props) {
         console.log("This is our restaurant object", restaurantName);
         event.preventDefault();
         props.addRestaurant(restaurantName);
-        /*
-        axios.post("https://restaurant-passport-2.herokuapp.com/api/auth/login", restaurantName)
-        .then(response =>{
-            console.log(response)
-    
-        })
-        .catch(err => {
-            console.log(err)
-        });
-        */
       };
     
       const handleChange = (event) => {

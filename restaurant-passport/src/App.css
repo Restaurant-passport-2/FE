@@ -9,6 +9,15 @@ h1 {
   letter-spacing: 0.12rem;
   word-spacing: 0.6rem;
 }
+
+h3 {
+  transition: all 0.2s ease-in-out;
+}
+
+h3:hover {
+  transform: scale(1.2);
+}
+
 header {
   display: flex;
   flex-flow: row wrap;
@@ -18,8 +27,7 @@ header {
 }
 
 header .img-container {
-  width: 4rem;
-  
+  width: 4rem;  
 }
 
 img {
@@ -162,7 +170,7 @@ button:active {
 .all-restaurants-box {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: stretch;
 }
 
@@ -175,6 +183,33 @@ button:active {
 }
 
 .stamp-box {
-  width: 5rem;
+  width: 6rem;
   margin: 1rem auto;
+}
+
+.rating-icon-box {
+  width: 3rem;
+}
+
+.rating-icon-row-box {
+  width: 60%;
+  margin: 1rem auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.visited-form {
+  padding: 0.5rem;
+  width: 20%;
+}
+
+.visited-form .inputContainer {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
 }
