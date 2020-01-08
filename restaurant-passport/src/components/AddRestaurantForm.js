@@ -5,18 +5,19 @@ import { connect } from "react-redux";
 
 function AddRestaurantForm(props) {
     const [restaurantName, setRestaurantName] = useState({
-        restaurantname: "",
+        name: "",
         city: "",
         zipcode: "",
-        streetaddress: "",
-        phonenumber: "",
-        website: "",
-        myrating: "",
+        street_address: "",
+        phone_number: "",
+        website_url: "",
+        personal_rating: "",
         notes: "",
-        visited: "",  
+        stamped: false,  
       });
     
       const handleSubmit = (event) => {
+        console.log("This is our restaurant object", restaurantName);
         event.preventDefault();
         props.addRestaurant(restaurantName);
         /*
@@ -41,20 +42,20 @@ function AddRestaurantForm(props) {
           <form onSubmit={handleSubmit}>
               <legend>Add Restaurant</legend>
               <div className="inputContainer">
-                <label htmlFor="restaurantname">Restaurant Name: </label>
+                <label htmlFor="name">* Restaurant Name: </label>
                 <input
                   required 
                   type="text"
-                  name="restaurantname"
-                  id="restaurantname"
+                  name="name"
+                  id="name"
                   placeholder="enter restaurant name here"
                   onChange={handleChange}
-                  value={restaurantName.restaurantname}
+                  value={restaurantName.name}
                 />
               </div>
           
               <div className="inputContainer">
-                <label htmlFor="city">City: </label>
+                <label htmlFor="city">* City: </label>
                   <input
                     required 
                     type="text"
@@ -67,7 +68,7 @@ function AddRestaurantForm(props) {
                 </div>
 
                 <div className="inputContainer">
-                <label htmlFor="zipcode">Zipcode: </label>
+                <label htmlFor="zipcode">* Zipcode: </label>
                 <input
                   required 
                   type="text"
@@ -81,59 +82,56 @@ function AddRestaurantForm(props) {
 
 
               <div className="inputContainer">
-                <label htmlFor="streetaddress">Street Address: </label>
+                <label htmlFor="street_address">* Street Address: </label>
                 <input
                   required 
                   type="text"
-                  name="streetaddress"
-                  id="streetaddress"
+                  name="street_address"
+                  id="street_address"
                   placeholder="enter address here"
                   onChange={handleChange}
-                  value={restaurantName.streetaddress}
+                  value={restaurantName.street_address}
                 />
               </div>
 
               <div className="inputContainer">
-                <label htmlFor="phonenumber">Phone Number: </label>
-                <input
-                  required 
+                <label htmlFor="phone_number">Phone Number: </label>
+                <input 
                   type="text"
-                  name="phonenumber"
-                  id="phonenumber"
+                  name="phone_number"
+                  id="phone_number"
                   placeholder="enter phone number here"
                   onChange={handleChange}
-                  value={restaurantName.phonenumber}
+                  value={restaurantName.phone_number}
                 />
               </div>
 
               <div className="inputContainer">
-                <label htmlFor="website">URL: </label>
+                <label htmlFor="website_url">URL: </label>
                 <input
-                  required 
                   type="text"
-                  name="website"
-                  id="website"
+                  name="website_url"
+                  id="website_url"
                   placeholder="enter website here"
                   onChange={handleChange}
-                  value={restaurantName.website}
+                  value={restaurantName.website_url}
                 />
               </div>
 
               <div className="inputContainer">
-                <label htmlFor="myrating">My Rating: </label>
+                <label htmlFor="personal_rating">My Rating: </label>
                 <input
-                  required 
                   type="text"
-                  name="myrating"
-                  id="myrating"
+                  name="personal_rating"
+                  id="personal_rating"
                   placeholder="enter 1-5 here"
                   onChange={handleChange}
-                  value={restaurantName.myrating}
+                  value={restaurantName.personal_rating}
                 />
               </div>
 
               <div className="inputContainer">
-                <label htmlFor="notes">Notes: </label>
+                <label htmlFor="notes">* Notes: </label>
                 <input
                   required 
                   type="text"
@@ -146,15 +144,13 @@ function AddRestaurantForm(props) {
               </div>
 
               <div className="inputContainer">
-                <label htmlFor="visited">Visited: </label>
+                <label htmlFor="stamped">Visited? </label>
                 <input
-                  required 
                   type="checkbox"
-                  name="visited"
-                  id="visited"
-                  placeholder=""
+                  name="stamped"
+                  id="stamped"
                   onChange={handleChange}
-                  value={restaurantName.visited}
+                  value={restaurantName.stamped}
                 />
               </div>
 
