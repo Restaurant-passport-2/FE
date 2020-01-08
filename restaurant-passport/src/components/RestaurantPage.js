@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from "react-redux";
 
 import { deleteRestaurant } from '../actions/actions';
@@ -11,7 +11,18 @@ import EditRestaurantForm from './EditRestaurantForm';
 */
 
 const RestaurantPage = (props) => {
+    console.log('Restaurant page props', props)
+
+    const [currentRestaurant, setCurrentRestaurant]= useState([]);
+
     const id = props.match.params.restaurantId;
+    console.log('this is ID', id)
+
+    useEffect(()=> { setCurrentRestaurant(props.passport.filter(restaurant => {
+        return( id!== restaurant.restaurant_id) 
+         
+     }))},[id])
+   console.log('This is your current restaurant',currentRestaurant)
     return (
         <h3>Restaurant Page {id} under construction...</h3>
     )
@@ -89,7 +100,7 @@ const RestaurantPage = (props) => {
 }
 
 const mapStateToProps = state => {
-    return state;
+    return{ ...state, passport: state.passport};
   };
   
 export default connect(

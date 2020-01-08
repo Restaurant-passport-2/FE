@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from "react-redux";
+import {Link} from 'react-router-dom';
 
 import OrangeCheck from '../images/OrangeCheck.png';
 import LoveForkKnifeOrange from '../images/LoveForkKnifeOrange.png';
@@ -9,6 +10,7 @@ import { deleteRestaurant } from '../actions/actions';
 import EditRestaurantForm from './EditRestaurantForm';
 
 const Restaurant = (props) => {
+    // console.log('restaurant props', props)
     const [isEditing, setIsEditing] = useState(false);
     const [isVisited, setIsVisited] = useState(props.restaurant.stamped);
 
@@ -39,7 +41,7 @@ const Restaurant = (props) => {
     const goToPage = () => {
         console.log(`Time to go to RestaurantPage for restaurant with id of ${props.restaurant.restaurant_id}`);
         //TODO: Add something like below to go to the RestaurantPage
-        //props.history.push(`/restaurants/${props.restaurant.restaurant_id}`);
+        props.history.push(`/restaurants/${props.restaurant.restaurant_id}`);
         
     }
 
@@ -50,8 +52,9 @@ const Restaurant = (props) => {
             <button onClick={startDelete}>Delete</button>
 
             {isEditing && <EditRestaurantForm restaurant={props.restaurant} toggleEdit={handleClick}/>}
-            <h3 onClick={goToPage}>{props.restaurant.restaurant.name}</h3>
-
+            <Link to={`/restaurants/${props.restaurant.restaurant_id}`}>
+            <h3>{props.restaurant.restaurant.name}</h3>
+            </Link>
             {isVisited && <div className='stamp-box'><img src={ OrangeCheck } alt='passport stamp' /></div>}
             <p>{props.restaurant.restaurant.street_address} <br/>{props.restaurant.city} {props.restaurant.restaurant.zipcode}  </p>
             <p>{props.restaurant.phone_number}</p>

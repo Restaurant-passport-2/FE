@@ -28,18 +28,18 @@ function App(props) {
       <div>
         <button onClick={handleClick}>{!needsToSignUp? 'First-Time User? Create Your Passport': 'Back to Login'}
         </button> 
-        {needsToSignUp? <SignUp /> : <Login />}
+        {/* {needsToSignUp? <SignUp /> : <Login />} */}
         </div>
       }
       
-      {props.isLoggedIn && <RestaurantList />}
       
       
       
+        <Route exact path='/' component={Login}/>
         <Route path = '/signup' component = {SignUp} />
-        <Route path='/login' component={Login} />
-        <PrivateRoute path='/restaurants' component={RestaurantList} />
-        <PrivateRoute path='/restaurants/:restaurantId' component={RestaurantPage} />
+        {/* <Route path='/login' component={Login} /> */}
+        <PrivateRoute exact path='/restaurants' component={RestaurantList} />
+        <PrivateRoute exact path='/restaurants/:restaurantId' component={RestaurantPage} />
      
       <Footer />
       

@@ -4,6 +4,7 @@ import { loginUser } from '../actions/actions';
 import { connect } from "react-redux";
 
 function Login(props) {
+  console.log('login props', props)
   const [user, setUser] = useState({
     username: "",
     password: "",  
@@ -12,7 +13,7 @@ function Login(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(user);
-    props.loginUser(user);
+    props.loginUser(user, props.history);
   };
 
   const handleChange = (event) => {
