@@ -20,10 +20,12 @@ function AddRestaurantForm(props) {
         console.log("This is our restaurant object", restaurantName);
         event.preventDefault();
         props.addRestaurant(restaurantName);
+        props.toggleAdd();
       };
     
       const handleChange = (event) => {
-        setRestaurantName({...restaurantName, [event.target.name]: event.target.value })
+        const value = event.target.type === 'checkbox'? event.target.checked : event.target.value;
+        setRestaurantName({...restaurantName, [event.target.name]: value })
       };
     
       return (

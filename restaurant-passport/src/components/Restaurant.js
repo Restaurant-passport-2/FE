@@ -7,11 +7,11 @@ import LoveForkKnifeOrange from '../images/LoveForkKnifeOrange.png';
 
 import { deleteRestaurant } from '../actions/actions';
 
-import EditRestaurantForm from './EditRestaurantForm';
+//import EditRestaurantForm from './EditRestaurantForm';
 
 const Restaurant = (props) => {
     // console.log('restaurant props', props)
-    const [isEditing, setIsEditing] = useState(false);
+    //const [isEditing, setIsEditing] = useState(false);
     const [isVisited, setIsVisited] = useState(props.restaurant.stamped);
 
     const rows = [];
@@ -21,6 +21,7 @@ const Restaurant = (props) => {
     </div>);
     }
 
+    /*
     const handleClick = () => {
         console.log(`Time to toggle editing!`);
         setIsEditing(!isEditing);
@@ -38,6 +39,8 @@ const Restaurant = (props) => {
         //TODO: Add functionality once the endpoint to do so is ready.
     }
 
+    */
+
     // const goToPage = () => {
     //     console.log(`Time to go to RestaurantPage for restaurant with id of ${props.restaurant.restaurant_id}`);
     //     //TODO: Add something like below to go to the RestaurantPage
@@ -53,12 +56,12 @@ const Restaurant = (props) => {
 
             {/* {isEditing && <EditRestaurantForm restaurant={props.restaurant} toggleEdit={handleClick}/>} */}
             <Link to={`/restaurants/${props.restaurant.restaurant_id}`}>
-            <h3>{props.restaurant.restaurant.name}</h3>
+            <h3>{props.restaurant.name}</h3>
             </Link>
             {isVisited && <div className='stamp-box'><img src={ OrangeCheck } alt='passport stamp' /></div>}
-            <p>{props.restaurant.restaurant.street_address} <br/>{props.restaurant.city} {props.restaurant.restaurant.zipcode}  </p>
+            <p>{props.restaurant.street_address} <br/>{props.restaurant.city} {props.restaurant.zipcode}  </p>
             <p>{props.restaurant.phone_number}</p>
-            <a href={props.restaurant.restaurant.website_url}>Visit the Website</a>
+            <a href={props.restaurant.website_url}>Visit the Website</a>
             <p>My rating: {props.restaurant.personal_rating} hearts</p>
             
             <div className='rating-icon-row-box'>

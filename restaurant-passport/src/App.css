@@ -227,4 +227,5 @@ a h3{
   width: 100%;
   padding: 0.5rem;
   border: rgba(68, 191, 156, 0.8) 2px solid;
+  border-radius: 3px;
 }

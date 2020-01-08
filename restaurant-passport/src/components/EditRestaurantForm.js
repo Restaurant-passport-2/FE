@@ -4,12 +4,12 @@ import { editRestaurant } from '../actions/actions';
 
 function EditRestaurantForm(props) {
     const [restaurantName, setRestaurantName] = useState({
-      name: props.restaurant.restaurant.name,
+      name: props.restaurant.name,
       city: props.restaurant.city,
-      zipcode: props.restaurant.restaurant.zipcode,
-      street_address: props.restaurant.restaurant.street_address,
-      phone_number: props.restaurant.restaurant.phone_number,
-      website_url: props.restaurant.restaurant.phone_number,
+      zipcode: props.restaurant.zipcode,
+      street_address: props.restaurant.street_address,
+      phone_number: props.restaurant.phone_number,
+      website_url: props.restaurant.phone_number,
       personal_rating: props.restaurant.personal_rating,
       notes: props.restaurant.notes,
       stamped: props.restaurant.stamped,   

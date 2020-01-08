@@ -24,7 +24,11 @@ const RestaurantPage = (props) => {
         let winner =  props.passport.filter(restaurant => ( Number(restaurant.restaurant_id) === Number(id))  
         )
         setCurrentRestaurant(winner[0]);
-    },[id])
+    },[id, props.passport])
+
+    useEffect(() => {
+        if (currentRestaurant) {setIsVisited(currentRestaurant.stamped)};
+    }, [currentRestaurant])
 
    console.log('This is your current restaurant',currentRestaurant)
 
@@ -35,7 +39,7 @@ const RestaurantPage = (props) => {
 }
 
 const startDelete = () => {
-    console.log(`Time to delete ${currentRestaurant.restaurant.name}`);
+    console.log(`Time to delete ${currentRestaurant.name}`);
     props.deleteRestaurant(currentRestaurant);
     props.history.push('/restaurants');
 }
@@ -59,10 +63,10 @@ const handleCheckboxChange = () => {
         <div>
             {console.log('currentRestaurant',currentRestaurant)}
         
-        {currentRestaurant && <h2>{currentRestaurant.restaurant.name}</h2>}
-        {currentRestaurant && <p>{currentRestaurant.restaurant.street_address}</p>}
-        {currentRestaurant && <p>{currentRestaurant.city}, {currentRestaurant.restaurant.state} {currentRestaurant.restaurant.zipcode}</p>}
-        {currentRestaurant && <p>{currentRestaurant.restaurant.phone_number} </p>}
+        {currentRestaurant && <h2>{currentRestaurant.name}</h2>}
+        {currentRestaurant && <p>{currentRestaurant.street_address}</p>}
+        {currentRestaurant && <p>{currentRestaurant.city}, {currentRestaurant.state} {currentRestaurant.zipcode}</p>}
+        {currentRestaurant && <p>{currentRestaurant.phone_number} </p>}
         {currentRestaurant && <p>Rating: {currentRestaurant.personal_rating}</p>}
         <div className='rating-icon-row-box'>
                     {rows}

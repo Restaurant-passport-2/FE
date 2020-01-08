@@ -2,21 +2,20 @@ import React, {useState } from 'react';
 import Restaurant from './Restaurant';
 import AddRestaurantForm from './AddRestaurantForm';
 import { connect } from "react-redux";
-import {Link} from 'react-router-dom';
 
 const RestaurantList = (props) => {
     // console.log('These are restaurant list props' ,props)
     const [addingRest, setAddingRest] = useState(false);
 
-    const handleButton = (e) => {
-        e.preventDefault();
+    const handleButton = () => {
+        //e.preventDefault();
         setAddingRest(!addingRest)
     }
 return(
     <>
     <h1>My Passport</h1>
     <button onClick={handleButton}>{addingRest ? 'Cancel Add': ' Add Restaurant' }</button>
-   {addingRest &&  <AddRestaurantForm />}
+   {addingRest &&  <AddRestaurantForm toggleAdd={handleButton}/>}
    
     <div className='all-restaurants-box'>
         {props.passport.map(restaurant =>
