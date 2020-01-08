@@ -49,15 +49,16 @@ export const signupUser = (newUser) => dispatch => {
         });
 };
 
-export const loginUser = (user) => dispatch => {
+export const loginUser = (user, history) => dispatch => {
     dispatch( { type: LOGIN_USER_START });
     console.log('in loginUser in actions');
     axios
         .post("https://restaurant-passport-2.herokuapp.com/api/auth/login", user)
         .then(response =>{
-            console.log(response);
+            console.log('Login response from actions' ,history.push);
             localStorage.setItem('token', response.data.token);
             dispatch( {type: LOGIN_USER_SUCCESS, payload: response.data });
+            history.push('/restaurants')
         })
         .catch(err => {
             dispatch( { type: LOGIN_USER_FAILURE, payload: err.response});
