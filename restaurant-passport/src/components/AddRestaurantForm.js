@@ -67,6 +67,19 @@ function AddRestaurantForm(props) {
                   />
                 </div>
 
+              <div className="inputContainer">
+                <label htmlFor="state">* State: </label>
+                  <input
+                    required 
+                    type="text"
+                    name="state"
+                    id="state"
+                    placeholder="enter state here"
+                    onChange={handleChange}
+                    value={restaurantName.state}
+                  />
+                </div>
+
                 <div className="inputContainer">
                 <label htmlFor="zipcode">* Zipcode: </label>
                 <input
