@@ -31,10 +31,10 @@ export default function EditRestaurantForm() {
       };
     
       return (
-        <div className="App">
+        <div className="edit-restaurant-box">
           
           <form onSubmit={handleSubmit}>
-              <legend>Add Restaurant</legend>
+              <legend>Edit Restaurant</legend>
               <div className="inputContainer">
                 <label htmlFor="restaurantname">Restaurant Name: </label>
                 <input

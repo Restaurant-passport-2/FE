@@ -77,6 +77,7 @@ export const logoutUser = () => dispatch => {
 
 export const addRestaurant = (restaurant) => dispatch => {
     dispatch( { type: ADD_RESTAURANT_START});
+    console.log("Ready to be sent : ", restaurant);
     axiosWithAuth().post('https://restaurant-passport-2.herokuapp.com/api/passport/entry', restaurant)
     .then(response => {
         console.log(response)
