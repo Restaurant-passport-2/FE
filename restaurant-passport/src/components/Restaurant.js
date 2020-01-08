@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import OrangeCheck from '../images/OrangeCheck.png';
 
-import {EditRestaurantForm} from './EditRestaurantForm';
+import EditRestaurantForm from './EditRestaurantForm';
 
 const state = {
     restaurantName: 'Chilangos',
@@ -15,14 +15,18 @@ const state = {
     visited: true
 }
 const Restaurant = () => {
+    const [isEditing, setIsEditing] = useState(false);
+
     const handleClick = (e) => {
         console.log(`I've been clicked!`)
+        setIsEditing(!isEditing);
         e.preventDefault()
     }
     return(
        
         <div className='restaurant-box'>
             <button onClick={handleClick}>Edit</button>
+            {isEditing && <EditRestaurantForm />}
             <h3>{state.restaurantName}</h3>
             <p>{state.streetAddress} <br/>{state.city} {state.zip}  </p>
             <p>{state.phone}</p>

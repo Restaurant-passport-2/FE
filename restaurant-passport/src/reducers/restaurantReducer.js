@@ -59,7 +59,8 @@ const restaurantReducer = (state = initialState, action) => {
                 email: action.payload.user.email,
                 city: action.payload.user.city,
                 zip: action.payload.user.zipcode,
-                passport: action.payload.user.passport
+                passport: action.payload.user.passport, 
+                error: ''
             };
         case SIGNUP_USER_FAILURE:
             return {
@@ -81,7 +82,8 @@ const restaurantReducer = (state = initialState, action) => {
                 email: action.payload.user.email,
                 city: action.payload.user.city,
                 zip: action.payload.user.zipcode,
-                passport: action.payload.user.passport
+                passport: action.payload.user.passport, 
+                error: ''
             };
         case LOGIN_USER_FAILURE:
             return {
@@ -104,7 +106,8 @@ const restaurantReducer = (state = initialState, action) => {
                 email: '',
                 city: '',
                 zip: '',
-                passport: []
+                passport: [],
+                error: ''
             };
         case LOGOUT_USER_FAILURE:
             return {
@@ -121,7 +124,8 @@ const restaurantReducer = (state = initialState, action) => {
             // TODO: add restaurant to passport in state OR get whole new passport from response, depending on API
             return {
                 ...state,
-                isAddingRestaurant: false
+                isAddingRestaurant: false,
+                error: ''
             };
         case ADD_RESTAURANT_FAILURE:
             return {
@@ -138,7 +142,8 @@ const restaurantReducer = (state = initialState, action) => {
             // TODO: get whole new passport from response, probably
             return {
                 ...state,
-                isEditingRestaurant: false
+                isEditingRestaurant: false,
+                error: ''
             };
         case EDIT_RESTAURANT_FAILURE:
             return {
@@ -155,7 +160,8 @@ const restaurantReducer = (state = initialState, action) => {
             // TODO: get whole new passport from response, probably
             return {
                 ...state,
-                isDeletingRestaurant: false
+                isDeletingRestaurant: false,
+                error: ''
             };
         case DELETE_RESTAURANT_FAILURE:
             return {
