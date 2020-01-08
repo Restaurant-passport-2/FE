@@ -39,7 +39,7 @@ const RestaurantPage = (props) => {
 }
 
 const startDelete = () => {
-    console.log(`Time to delete ${currentRestaurant.restaurant.name}`);
+    console.log(`Time to delete ${currentRestaurant.name}`);
     props.deleteRestaurant(currentRestaurant);
     props.history.push('/restaurants');
 }
