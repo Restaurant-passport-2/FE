@@ -56,12 +56,12 @@ const Restaurant = (props) => {
 
             {/* {isEditing && <EditRestaurantForm restaurant={props.restaurant} toggleEdit={handleClick}/>} */}
             <Link to={`/restaurants/${props.restaurant.restaurant_id}`}>
-            <h3>{props.restaurant.restaurant.name}</h3>
+            <h3>{props.restaurant.name}</h3>
             </Link>
             {isVisited && <div className='stamp-box'><img src={ OrangeCheck } alt='passport stamp' /></div>}
-            <p>{props.restaurant.restaurant.street_address} <br/>{props.restaurant.city} {props.restaurant.restaurant.zipcode}  </p>
+            <p>{props.restaurant.street_address} <br/>{props.restaurant.city} {props.restaurant.zipcode}  </p>
             <p>{props.restaurant.phone_number}</p>
-            <a href={props.restaurant.restaurant.website_url}>Visit the Website</a>
+            <a href={props.restaurant.website_url}>Visit the Website</a>
             <p>My rating: {props.restaurant.personal_rating} hearts</p>
             
             <div className='rating-icon-row-box'>

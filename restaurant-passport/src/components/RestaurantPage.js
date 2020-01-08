@@ -63,10 +63,10 @@ const handleCheckboxChange = () => {
         <div>
             {console.log('currentRestaurant',currentRestaurant)}
         
-        {currentRestaurant && <h2>{currentRestaurant.restaurant.name}</h2>}
-        {currentRestaurant && <p>{currentRestaurant.restaurant.street_address}</p>}
-        {currentRestaurant && <p>{currentRestaurant.city}, {currentRestaurant.restaurant.state} {currentRestaurant.restaurant.zipcode}</p>}
-        {currentRestaurant && <p>{currentRestaurant.restaurant.phone_number} </p>}
+        {currentRestaurant && <h2>{currentRestaurant.name}</h2>}
+        {currentRestaurant && <p>{currentRestaurant.street_address}</p>}
+        {currentRestaurant && <p>{currentRestaurant.city}, {currentRestaurant.state} {currentRestaurant.zipcode}</p>}
+        {currentRestaurant && <p>{currentRestaurant.phone_number} </p>}
         {currentRestaurant && <p>Rating: {currentRestaurant.personal_rating}</p>}
         <div className='rating-icon-row-box'>
                     {rows}
