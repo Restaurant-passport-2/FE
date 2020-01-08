@@ -1,5 +1,4 @@
-import React, { useEffect, useState} from "react";
-import axios from 'axios';
+import React, { useState } from "react";
 import { signupUser } from '../actions/actions';
 import { connect } from "react-redux";
 
@@ -116,7 +115,7 @@ function SignUp(props) {
             />
           </div>
     
-          <button role="submit">Sign Up and Get Your Passport!</button>
+          <button type="submit">Sign Up and Get Your Passport!</button>
         </form>
       
     </div>

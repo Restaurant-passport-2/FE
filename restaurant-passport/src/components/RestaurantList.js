@@ -4,9 +4,8 @@ import AddRestaurantForm from './AddRestaurantForm';
 import { connect } from "react-redux";
 
 const RestaurantList = (props) => {
-    const [restaurants, setRestaurants] = useState([])
-
-    const [addingRest, setAddingRest] = useState(false)
+    
+    const [addingRest, setAddingRest] = useState(false);
 
     const handleButton = (e) => {
         e.preventDefault();
@@ -15,14 +14,10 @@ const RestaurantList = (props) => {
 return(
     <>
     <h1>My Passport</h1>
-    <button onClick={handleButton}>{addingRest ? 'Cancel add': ' Add Restaurant' }</button>
+    <button onClick={handleButton}>{addingRest ? 'Cancel Add': ' Add Restaurant' }</button>
    {addingRest &&  <AddRestaurantForm />}
-   <div>{props.passport.map(restaurant => {
-       return (
-           <p key={restaurant.restaurant_id}>{restaurant.restaurant.name}</p>
-       )})}
-    </div>
-    <div>
+   
+    <div className='all-restaurants-box'>
         {props.passport.map(restaurant =>
             <Restaurant 
             key={restaurant.restaurant_id}

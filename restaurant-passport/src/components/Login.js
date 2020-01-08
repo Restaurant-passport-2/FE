@@ -1,27 +1,16 @@
-import React, { useEffect, useState} from "react";
-import axios from 'axios';
+import React, { useState } from "react";
 
 import { loginUser } from '../actions/actions';
 import { connect } from "react-redux";
 
 function Login(props) {
-  const [user, setUser] = React.useState({
+  const [user, setUser] = useState({
     username: "",
     password: "",  
   });
 
   const handleSubmit = (event) => {
-    event.preventDefault()
-    /*
-    axios.post("https://restaurant-passport-2.herokuapp.com/api/auth/login", user)
-    .then(response =>{
-        console.log(response)
-      localStorage.setItem('token', response.data.token)
-    })
-    .catch(err => {
-        console.log(err)
-    });
-    */
+    event.preventDefault();
     console.log(user);
     props.loginUser(user);
   };
@@ -60,7 +49,7 @@ function Login(props) {
                 value={user.password}
               />
             </div>
-            <button role="submit">Login</button>
+            <button type="submit">Login</button>
         </form>
     
     </div>

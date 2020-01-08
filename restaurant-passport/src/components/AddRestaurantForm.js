@@ -168,7 +168,7 @@ function AddRestaurantForm(props) {
                 />
               </div>
 
-                <button role="submit">Submit Restaurant</button>
+                <button type="submit">Submit Restaurant</button>
             </form>
        
         </div>

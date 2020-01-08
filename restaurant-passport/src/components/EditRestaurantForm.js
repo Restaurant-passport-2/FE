@@ -1,8 +1,7 @@
-import React, { useEffect, useState} from "react";
-import axios from 'axios';
+import React, { useState } from "react";
 
 export default function EditRestaurantForm() {
-    const [restaurantName, setRestaurantName] = React.useState({
+    const [restaurantName, setRestaurantName] = useState({
         restaurantname: "",
         city: "",
         zipcode: "",
@@ -15,15 +14,9 @@ export default function EditRestaurantForm() {
       });
     
       const handleSubmit = (event) => {
-        event.preventDefault()
-        axios.post("https://restaurant-passport-2.herokuapp.com/api/auth/login", restaurantName)
-        .then(response =>{
-            console.log(response)
-    
-        })
-        .catch(err => {
-            console.log(err)
-        });
+        event.preventDefault();
+        console.log(restaurantName);
+        // TODO: put editRestaurant call in here
       };
     
       const handleEdit = (event) => {
@@ -153,7 +146,7 @@ export default function EditRestaurantForm() {
                 />
               </div>
 
-                <button role="submit">Submit Edit</button>
+                <button type="submit">Submit Edit</button>
             </form>
        
         </div>
