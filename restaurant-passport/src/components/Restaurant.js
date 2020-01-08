@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { connect } from "react-redux";
+
 import OrangeCheck from '../images/OrangeCheck.png';
+import LoveForkKnifeOrange from '../images/LoveForkKnifeOrange.png';
+
 import { deleteRestaurant } from '../actions/actions';
 
 import EditRestaurantForm from './EditRestaurantForm';
@@ -8,6 +11,13 @@ import EditRestaurantForm from './EditRestaurantForm';
 const Restaurant = (props) => {
     const [isEditing, setIsEditing] = useState(false);
     const [isVisited, setIsVisited] = useState(props.restaurant.stamped);
+
+    const rows = [];
+    for (let i=0; i < props.restaurant.personal_rating; i++) {
+        rows.push(<div className='rating-icon-box' key={i}>
+        <img src={LoveForkKnifeOrange} alt='rating_icon' />
+    </div>);
+    }
 
     const handleClick = () => {
         console.log(`Time to toggle editing!`);
@@ -31,7 +41,7 @@ const Restaurant = (props) => {
         <div className='restaurant-box'>
             <button onClick={handleClick}>{isEditing? 'Cancel Edit': 'Edit'}</button>
             <button onClick={startDelete}>Delete</button>
-            
+
             {isEditing && <EditRestaurantForm restaurant={props.restaurant} toggleEdit={handleClick}/>}
             <h3>{props.restaurant.restaurant.name}</h3>
 
@@ -39,7 +49,11 @@ const Restaurant = (props) => {
             <p>{props.restaurant.restaurant.street_address} <br/>{props.restaurant.city} {props.restaurant.restaurant.zipcode}  </p>
             <p>{props.restaurant.phone_number}</p>
             <a href={props.restaurant.restaurant.website_url}>Visit the Website</a>
-            <p>My rating: {props.restaurant.personal_rating}</p>
+            <p>My rating: {props.restaurant.personal_rating} hearts</p>
+            
+            <div className='rating-icon-row-box'>
+                {rows}
+            </div>
             <p>My notes: {props.restaurant.notes}</p>
             
             <form>

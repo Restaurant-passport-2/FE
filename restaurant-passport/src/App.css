@@ -175,6 +175,19 @@ button:active {
 }
 
 .stamp-box {
-  width: 5rem;
+  width: 6rem;
   margin: 1rem auto;
+}
+
+.rating-icon-box {
+  width: 3rem;
+}
+
+.rating-icon-row-box {
+  width: 60%;
+  margin: 1rem auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
 }
