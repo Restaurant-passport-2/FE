@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import SignUp from './SignUp';
 
 function Login(props) {
-  console.log('login props', props)
+  // console.log('login props', props)
   const [needsToSignUp, setNeedsToSignUp] = useState(false);
   const [user, setUser] = useState({
     username: "",
@@ -33,7 +33,7 @@ function Login(props) {
       <div>
         <button onClick={handleClick}>{!needsToSignUp? 'First-Time User? Create Your Passport': 'Back to Login'}
         </button> 
-        {needsToSignUp? <SignUp /> : 
+        {needsToSignUp? <SignUp history={props.history} toggleSignUp={handleClick} /> : 
         <div>
       <h1>Access Your Passport</h1>
       <form onSubmit={handleSubmit}>

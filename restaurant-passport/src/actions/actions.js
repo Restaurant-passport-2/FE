@@ -34,7 +34,7 @@ export const DELETE_RESTAURANT_SUCCESS = 'DELETE_RESTAURANT_SUCCESS';
 export const DELETE_RESTAURANT_FAILURE = 'DELETE_RESTAURANT_FAILURE';
 
 
-export const signupUser = (newUser) => dispatch => {
+export const signupUser = (newUser, history) => dispatch => {
     console.log('In signupUser in actions');
     dispatch( { type: SIGNUP_USER_START });
     axios
@@ -43,6 +43,7 @@ export const signupUser = (newUser) => dispatch => {
             console.log(response);
             dispatch( { type: SIGNUP_USER_SUCCESS, payload: response.data});
             localStorage.setItem('token', response.data.token);
+            history.push('/')
         })
         .catch(err => {
             dispatch( { type: SIGNUP_USER_FAILURE, payload: err.response});
