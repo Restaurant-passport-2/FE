@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { connect } from 'react-redux';
+import { editRestaurant } from '../actions/actions';
 
-export default function EditRestaurantForm(props) {
+function EditRestaurantForm(props) {
     const [restaurantName, setRestaurantName] = useState({
       name: props.restaurant.restaurant.name,
       city: props.restaurant.city,
@@ -16,7 +18,8 @@ export default function EditRestaurantForm(props) {
       const handleSubmit = (event) => {
         event.preventDefault();
         console.log(restaurantName);
-        // TODO: put editRestaurant call in here
+        // TODO: change parameter if needed
+        props.editRestaurant(restaurantName);
         props.toggleEdit();
       };
     
@@ -146,3 +149,12 @@ export default function EditRestaurantForm(props) {
       );
 
 }
+
+const mapStateToProps = state => {
+  return state;
+};
+
+export default connect(
+  mapStateToProps,
+  { editRestaurant }
+)(EditRestaurantForm);

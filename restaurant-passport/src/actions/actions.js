@@ -92,6 +92,7 @@ export const addRestaurant = (restaurant) => dispatch => {
 
 export const editRestaurant = (restaurant) => dispatch => {
     dispatch( { type: EDIT_RESTAURANT_START});
+    console.log('In editRestaurant in actions');
    //more to come
 };
 
