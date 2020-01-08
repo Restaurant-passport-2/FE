@@ -25,7 +25,7 @@ const Restaurant = () => {
     return(
        
         <div className='restaurant-box'>
-            <button onClick={handleClick}>Edit</button>
+            <button onClick={handleClick}>{isEditing? 'Cancel Edit': 'Edit'}</button>
             {isEditing && <EditRestaurantForm />}
             <h3>{state.restaurantName}</h3>
             <p>{state.streetAddress} <br/>{state.city} {state.zip}  </p>

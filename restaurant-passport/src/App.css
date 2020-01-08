@@ -67,6 +67,10 @@ form {
   border-radius: 3px;
 }
 
+.edit-restaurant-box form {
+  width: 90%;
+}
+
 .inputContainer {
   margin: 0.5rem auto;
   width: 90%;
