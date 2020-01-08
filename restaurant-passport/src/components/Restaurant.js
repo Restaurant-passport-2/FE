@@ -6,16 +6,15 @@ import EditRestaurantForm from './EditRestaurantForm';
 const Restaurant = (props) => {
     const [isEditing, setIsEditing] = useState(false);
 
-    const handleClick = (e) => {
-        console.log(`Time to edit! I've been clicked!`)
+    const handleClick = () => {
+        console.log(`Time to toggle editing!`);
         setIsEditing(!isEditing);
-        e.preventDefault();
     }
     return(
        
         <div className='restaurant-box'>
             <button onClick={handleClick}>{isEditing? 'Cancel Edit': 'Edit'}</button>
-            {isEditing && <EditRestaurantForm />}
+            {isEditing && <EditRestaurantForm restaurant={props.restaurant} toggleEdit={handleClick}/>}
             <h3>{props.restaurant.restaurant.name}</h3>
             <p>{props.restaurant.restaurant.street_address} <br/>{props.restaurant.city} {props.restaurant.restaurant.zipcode}  </p>
             <p>{props.restaurant.phone_number}</p>
