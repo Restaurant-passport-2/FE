@@ -38,20 +38,20 @@ const Restaurant = (props) => {
         //TODO: Add functionality once the endpoint to do so is ready.
     }
 
-    const goToPage = () => {
-        console.log(`Time to go to RestaurantPage for restaurant with id of ${props.restaurant.restaurant_id}`);
-        //TODO: Add something like below to go to the RestaurantPage
-        props.history.push(`/restaurants/${props.restaurant.restaurant_id}`);
+    // const goToPage = () => {
+    //     console.log(`Time to go to RestaurantPage for restaurant with id of ${props.restaurant.restaurant_id}`);
+    //     //TODO: Add something like below to go to the RestaurantPage
+    //     props.history.push(`/restaurants/${props.restaurant.restaurant_id}`);
         
-    }
+    // }
 
     return(
        
         <div className='restaurant-box'>
-            <button onClick={handleClick}>{isEditing? 'Cancel Edit': 'Edit'}</button>
-            <button onClick={startDelete}>Delete</button>
+            {/* <button onClick={handleClick}>{isEditing? 'Cancel Edit': 'Edit'}</button>
+            <button onClick={startDelete}>Delete</button> */}
 
-            {isEditing && <EditRestaurantForm restaurant={props.restaurant} toggleEdit={handleClick}/>}
+            {/* {isEditing && <EditRestaurantForm restaurant={props.restaurant} toggleEdit={handleClick}/>} */}
             <Link to={`/restaurants/${props.restaurant.restaurant_id}`}>
             <h3>{props.restaurant.restaurant.name}</h3>
             </Link>
@@ -66,19 +66,8 @@ const Restaurant = (props) => {
             </div>
             <p>My notes: {props.restaurant.notes}</p>
             
-            <form className='visited-form'>
-                <div className='inputContainer'>
-                <label htmlFor='visited'>Visited? </label>
-                <input type='checkbox'
-                    name='visited'
-                    value={isVisited}
-                    onChange={handleCheckboxChange}
-                    id='visited'
-                    checked={isVisited? 'checked': null}
-                />
-                
-                </div>
-            </form>
+          
+              
             
         </div>
        

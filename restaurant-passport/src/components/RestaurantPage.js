@@ -14,6 +14,8 @@ const RestaurantPage = (props) => {
     console.log('Restaurant page props', props)
 
     const [currentRestaurant, setCurrentRestaurant]= useState(null);
+    const [isEditing, setIsEditing] = useState(false);
+    const [isVisited, setIsVisited] = useState(false);
 
     const id = props.match.params.restaurantId;
     //console.log('this is ID', id)
@@ -25,61 +27,65 @@ const RestaurantPage = (props) => {
     },[id])
 
    console.log('This is your current restaurant',currentRestaurant)
+
+
+   const handleClick = () => {
+    console.log(`Time to toggle editing!`);
+    setIsEditing(!isEditing);
+}
+
+const startDelete = () => {
+    console.log(`Time to delete ${currentRestaurant.restaurant.name}`);
+    props.deleteRestaurant(currentRestaurant);
+    props.history.push('/restaurants');
+}
+
+const handleCheckboxChange = () => {
+    //console.log(`Time to toggle the stamped status of ${currentRestaurant.restaurant.name}`);
+    setIsVisited(!isVisited);
+    //TODO: Add functionality once the endpoint to do so is ready.
+}
     
+   const rows = [];
+   if (currentRestaurant){ for (let i=0; i < currentRestaurant.personal_rating; i++) {
+       rows.push(<div className='rating-icon-box' key={i}>
+       <img src={LoveForkKnifeOrange} alt='rating_icon' />
+   </div>);
+   }}
+
     return (
+        
         
         <div>
             {console.log('currentRestaurant',currentRestaurant)}
-        <h3>Restaurant Page {id} under construction...</h3>
-        {currentRestaurant && <h3>Name: {currentRestaurant.restaurant.name}</h3>}
-        {currentRestaurant && <p>City: {currentRestaurant.city}</p>}
-        {currentRestaurant && <p>Notes: {currentRestaurant.notes}</p>}
+        
+        {currentRestaurant && <h2>{currentRestaurant.restaurant.name}</h2>}
+        {currentRestaurant && <p>{currentRestaurant.restaurant.street_address}</p>}
+        {currentRestaurant && <p>{currentRestaurant.city}, {currentRestaurant.restaurant.state} {currentRestaurant.restaurant.zipcode}</p>}
+        {currentRestaurant && <p>{currentRestaurant.restaurant.phone_number} </p>}
         {currentRestaurant && <p>Rating: {currentRestaurant.personal_rating}</p>}
+        <div className='rating-icon-row-box'>
+                    {rows}
+                </div>
+        {currentRestaurant && <p>Notes: {currentRestaurant.notes}</p>}
+        {isVisited && <div className='stamp-box'><img src={ OrangeCheck } alt='passport stamp' /></div>}
+        <form className='visited-form'>
+                <div className='inputContainer'>
+                <label htmlFor='visited'>Visited? </label>
+                <input type='checkbox'
+                    name='visited'
+                    value={isVisited}
+                    onChange={handleCheckboxChange}
+                    id='visited'
+                    checked={isVisited? 'checked': null}
+                />
+                </div>
+          </form>      
+        <button onClick={handleClick}>{isEditing? 'Cancel Edit': 'Edit'}</button>
+        {isEditing && currentRestaurant && <EditRestaurantForm restaurant={currentRestaurant} toggleEdit={handleClick}/>}
+            <button onClick={startDelete}>Delete</button>
         </div>
     )
-    
-    /*
-    const [isEditing, setIsEditing] = useState(false);
-    const [isVisited, setIsVisited] = useState(currentRestaurant.stamped);
-
-    const rows = [];
-    for (let i=0; i < currentRestaurant.personal_rating; i++) {
-        rows.push(<div className='rating-icon-box' key={i}>
-        <img src={LoveForkKnifeOrange} alt='rating_icon' />
-    </div>);
-    }
-
-    const handleClick = () => {
-        console.log(`Time to toggle editing!`);
-        setIsEditing(!isEditing);
-    }
-
-    const startDelete = () => {
-        console.log(`Time to delete ${currentRestaurant.restaurant.name}`);
-        //TODO: Change the parameter below to be whatever the back-end endpoint needs.
-        props.deleteRestaurant(currentRestaurant);
-    }
-
-    const handleCheckboxChange = () => {
-        //console.log(`Time to toggle the stamped status of ${currentRestaurant.restaurant.name}`);
-        setIsVisited(!isVisited);
-        //TODO: Add functionality once the endpoint to do so is ready.
-    }
-
-    return(
-       
-        <div className='restaurant-box'>
-            <button onClick={handleClick}>{isEditing? 'Cancel Edit': 'Edit'}</button>
-            <button onClick={startDelete}>Delete</button>
-
-            
-            {isEditing && currentRestaurant && <EditRestaurantForm restaurant={currentRestaurant} toggleEdit={handleClick}/>}
-            {currentRestaurant && <h3>{currentRestaurant.city}</h3>}
-            
-            
-        </div>     
-    )
-    */
 
 }
 
@@ -91,36 +97,3 @@ export default connect(
     mapStateToProps,
     { deleteRestaurant }
 )(RestaurantPage);
-
-/*
-
-            {isVisited && <div className='stamp-box'><img src={ OrangeCheck } alt='passport stamp' /></div>}
-            
-            {currentRestaurant && <div>
-                <p>{currentRestaurant.restaurant.street_address} <br/>{props.restaurant.city} {props.restaurant.restaurant.zipcode}  </p>
-                <p>{currentRestaurant.phone_number}</p>
-                <a href={currentRestaurant.restaurant.website_url}>Visit the Website</a>
-                <p>My rating: {currentRestaurant.personal_rating} hearts</p>
-                
-                <div className='rating-icon-row-box'>
-                    {rows}
-                </div>
-                <p>My notes: {currentRestaurant.notes}</p>
-            </div>
-            
-            }
-
-            <form className='visited-form'>
-                <div className='inputContainer'>
-                <label htmlFor='visited'>Visited? </label>
-                <input type='checkbox'
-                    name='visited'
-                    value={isVisited}
-                    onChange={handleCheckboxChange}
-                    id='visited'
-                    checked={isVisited? 'checked': null}
-                />
-                
-                </div>
-            </form>   
-            */
