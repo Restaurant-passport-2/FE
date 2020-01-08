@@ -60,6 +60,7 @@ active {
 
 a.active {
   font-style: bold;
+   
 }
 
 form {
@@ -178,8 +179,12 @@ button:active {
   border: 2px solid rgb(247, 153, 5);
   border-radius: 5px;
   padding: 0.75rem;
-  width: 45%;
-  margin: 1rem;
+  width: 30%;
+  margin: 0.5rem;
+  display:flex;
+  justify-content: center;
+  flex-flow: column nowrap;
+  align-items: center;
 }
 
 .stamp-box {
@@ -212,4 +217,14 @@ button:active {
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+
+a h3{
+  width: 100%;
+  padding: 0.5rem;
+  border: rgba(68, 191, 156, 0.8) 2px solid;
 }
