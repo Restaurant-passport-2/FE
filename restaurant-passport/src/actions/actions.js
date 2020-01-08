@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 // export const ADD_ITEM = 'ADD_ITEM';
 // export const REMOVE_ITEM = 'REMOVE_ITEM';
@@ -76,12 +77,21 @@ export const logoutUser = () => dispatch => {
 
 export const addRestaurant = (restaurant) => dispatch => {
     dispatch( { type: ADD_RESTAURANT_START});
+    axiosWithAuth().post('https://restaurant-passport-2.herokuapp.com/api/passport/entry', restaurant)
+    .then(response => {
+        console.log(response)
+        dispatch({type: ADD_RESTAURANT_SUCCESS, payload: response.data.entries})
+    })
+    .catch(err => {
+        console.log('This is an error in add restaurant', err);
+        dispatch({type: ADD_RESTAURANT_FAILURE, payload: err})
+    })
     //more to come
 };
 
 export const editRestaurant = (restaurant) => dispatch => {
     dispatch( { type: EDIT_RESTAURANT_START});
-    //more to come
+   
 };
 
 export const deleteRestaurant = (restaurant) => dispatch => {

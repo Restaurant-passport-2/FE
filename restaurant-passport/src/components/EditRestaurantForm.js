@@ -153,7 +153,7 @@ export default function EditRestaurantForm() {
                 />
               </div>
 
-                <button role="submit">Login</button>
+                <button role="submit">Submit Edit</button>
             </form>
        
         </div>
