@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { getRecommendations} from '../actions/actions';
+import { addRestaurant } from '../actions/actions';
 
 const Recommendations = props => {
 
@@ -9,6 +10,24 @@ const Recommendations = props => {
         console.log('Time to fetch recommendations');
         props.getRecommendations(props.city, props.zipcode);
     }
+
+    const addToPassport = (restaurant) => {
+        console.log('Time to add a restaurant to passport');
+        const formattedRestaurant = {
+            "name": restaurant.name,
+            "street_address": restaurant.location.address1,
+            "city": restaurant.location.city,
+            "state": restaurant.location.state,
+            "zipcode": restaurant.location.zip_code,
+            "phone_number": restaurant.display_phone,
+            "website_url": restaurant.url,
+            "stamped": false,
+            "personal_rating": 3,
+            "notes": "Added this recommendation to my passport"
+        }
+        props.addRestaurant(formattedRestaurant);
+    }
+
     return (
         <div>
             <h1>My Recommendations</h1>
@@ -25,6 +44,7 @@ const Recommendations = props => {
                         <p>Price: {restaurant.price}</p>
                         <p>Type(s):</p>
                         {restaurant.categories.map(category => <p key={category.title}>{category.title}</p>)}
+                        <button onClick={() => addToPassport(restaurant)}>Add to My Passport</button>
                         <hr />
                     </div>
                 )
@@ -44,5 +64,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    {getRecommendations }
+    {getRecommendations, addRestaurant }
   )(Recommendations);
