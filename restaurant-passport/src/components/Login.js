@@ -69,11 +69,8 @@ function Login(props) {
               />
             </div>
             <button type="submit">Login</button>
+        {(props.isLoggingIn && <Loader type="ThreeDots" color="white" height={80} width={80} />)}
         </form>
-        {
-          (props.isLoggingIn ? <Loader type="ThreeDots" color="white" height={80} width={80} />
-          : null)
-        }
         </div>
     } 
     </div>
