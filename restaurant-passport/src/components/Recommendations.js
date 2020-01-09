@@ -12,8 +12,23 @@ const Recommendations = props => {
     return (
         <div>
             <h1>My Recommendations</h1>
-            <button onClick={fetchRecommendations}>See Restaurants In My Area</button>
-            {props.recommendations && props.recommendations.map(restaurant => <h2>{restaurant.name}</h2>)}
+            {!props.recommendations && <button onClick={fetchRecommendations}>See Restaurants In My Area</button>}
+            {props.recommendations && props.recommendations.map(restaurant => {
+                return (
+                    <div key={restaurant.id}>
+                        <h2>{restaurant.name}</h2>
+                        <p>{restaurant.location.address1}</p>
+                        <p>{restaurant.location.city}, {restaurant.location.state} {restaurant.location.zip_code}</p>
+                        <p>{restaurant.display_phone}</p>
+                        <a href={restaurant.url}>Visit Website</a>
+                        <p>Rating: {restaurant.rating}</p>
+                        <p>Price: {restaurant.price}</p>
+                        <p>Type(s):</p>
+                        {restaurant.categories.map(category => <p key={category.title}>{category.title}</p>)}
+                        <hr />
+                    </div>
+                )
+            })}
         </div>
     )
 }
