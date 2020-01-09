@@ -1,7 +1,7 @@
 {
     "version" : 2,
-    "name" : "FE/restaurant-passport",
-    "builds" : [{"src": "FE/restaurant-passport/package.json",
+    "name" : "/restaurant-passport",
+    "builds" : [{"src": "/restaurant-passport/package.json",
         "use": "@now/static-build", "config": {"disDir": "build"} }],
     "routes" : [ {"src": "/(.*)", "dest": "project-name/$1"}]
 }
