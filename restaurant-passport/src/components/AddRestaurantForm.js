@@ -124,9 +124,8 @@ function AddRestaurantForm(props) {
               </div>
 
               <div className="inputContainer">
-                <label htmlFor="personal_rating">*My Rating: </label>
+                <label htmlFor="personal_rating">My Rating: </label>
                 <input
-                  required
                   type="text"
                   name="personal_rating"
                   id="personal_rating"

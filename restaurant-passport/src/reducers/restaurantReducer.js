@@ -30,6 +30,7 @@ const initialState = {
     city: '',
     zip: '',
     passport: [],
+    name: '',
     isLoggedIn: false,
     isSigningUp: false,
     isLoggingIn: false,
@@ -59,7 +60,8 @@ const restaurantReducer = (state = initialState, action) => {
                 email: action.payload.user.email,
                 city: action.payload.user.city,
                 zip: action.payload.user.zipcode,
-                passport: action.payload.user.passport, 
+                passport: action.payload.user.passport,
+                name: action.payload.user.name, 
                 error: ''
             };
         case SIGNUP_USER_FAILURE:
@@ -82,7 +84,8 @@ const restaurantReducer = (state = initialState, action) => {
                 email: action.payload.user.email,
                 city: action.payload.user.city,
                 zip: action.payload.user.zipcode,
-                passport: action.payload.user.passport, 
+                passport: action.payload.user.passport,
+                name: action.payload.user.name, 
                 error: ''
             };
         case LOGIN_USER_FAILURE:
