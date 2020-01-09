@@ -44,6 +44,9 @@ const Recommendations = props => {
                         <p>Price: {restaurant.price}</p>
                         <p>Type(s):</p>
                         {restaurant.categories.map(category => <p key={category.title}>{category.title}</p>)}
+                        <div className='yelp-img-box'>
+                            <img src={restaurant.image_url} alt='yelp photo' />
+                        </div>
                         <button onClick={() => addToPassport(restaurant)}>Add to My Passport</button>
                         <hr />
                     </div>

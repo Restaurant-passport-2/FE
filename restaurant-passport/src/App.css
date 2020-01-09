@@ -301,3 +301,11 @@ p:nth-of-type(odd) {
   flex-flow: row nowrap;
   align-items: center;
 }
+
+/* Recommendation Page Styles */
+
+.yelp-img-box {
+  width: 30%;
+  margin: 1rem auto;
+  border-radius: 3px;
+}
