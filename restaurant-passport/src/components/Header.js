@@ -19,6 +19,7 @@ function Header(props) {
             <nav>
                 <NavLink to='/restaurants' activeClassName='active'>My Passport</NavLink> 
                 <NavLink to='/profile' activeClassName='active'>My Profile</NavLink>
+                <NavLink to='/recommendations' activeClassName='active'>My Recommendations</NavLink>
             <button onClick={props.logoutUser}>Log Out</button>
             </nav>    
         </header>

@@ -1,14 +1,6 @@
 import axios from 'axios';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 
-// export const ADD_ITEM = 'ADD_ITEM';
-// export const REMOVE_ITEM = 'REMOVE_ITEM';
-
-// export const addItem = (restaurant) => {
-//     console.log(restaurant)
-//     return{type:ADD_ITEM, payload: restaurant}
-// }
-
 export const SIGNUP_USER_START = 'SIGNUP_USER_START';
 export const SIGNUP_USER_SUCCESS = 'SIGNUP_USER_SUCCESS';
 export const SIGNUP_USER_FAILURE = 'SIGNUP_USER_FAILURE';
@@ -32,6 +24,10 @@ export const EDIT_RESTAURANT_FAILURE = 'EDIT_RESTAURANT_FAILURE';
 export const DELETE_RESTAURANT_START = 'DELETE_RESTAURANT_START';
 export const DELETE_RESTAURANT_SUCCESS = 'DELETE_RESTAURANT_SUCCESS';
 export const DELETE_RESTAURANT_FAILURE = 'DELETE_RESTAURANT_FAILURE';
+
+export const GET_RECOMMENDATIONS_START= 'GET_RECOMMENDATIONS_START';
+export const GET_RECOMMENDATIONS_SUCCESS = 'GET_RECOMMENDATIONS_SUCCESS';
+export const GET_RECOMMENDATIONS_FAILURE = 'GET_RECOMMENDATIONS_FAILURE';
 
 
 export const signupUser = (newUser, history) => dispatch => {
@@ -118,5 +114,25 @@ export const deleteRestaurant = (restaurant) => dispatch => {
         console.log('delete action error', err)
         dispatch({type: DELETE_RESTAURANT_FAILURE, payload: err.message})
     })
-    //more to come
 };
+
+export const getRecommendations = (city, zipcode) => dispatch => {
+    dispatch( { type: GET_RECOMMENDATIONS_START});
+    console.log('In getRecommendations in actions');
+    axiosWithAuth()
+        .get("https://restaurant-passport-2.herokuapp.com/api/restaurants/search", {
+            params: {
+                location: `${city}, ${zipcode}`,
+                limit: 10,
+                sort_by: "rating"
+            },
+        })
+        .then(response => {
+            console.log('get recommendations response', response);
+            dispatch({type: GET_RECOMMENDATIONS_SUCCESS, payload: response.data.businesses})
+        })
+        .catch(err => {
+            console.log('get recommendations error', err);
+            dispatch({type: GET_RECOMMENDATIONS_FAILURE, payload: err.message})
+        })
+}

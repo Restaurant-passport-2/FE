@@ -20,7 +20,11 @@ import {  SIGNUP_USER_START,
 
         DELETE_RESTAURANT_START,
         DELETE_RESTAURANT_SUCCESS,
-        DELETE_RESTAURANT_FAILURE
+        DELETE_RESTAURANT_FAILURE,
+
+        GET_RECOMMENDATIONS_START,
+        GET_RECOMMENDATIONS_SUCCESS,
+        GET_RECOMMENDATIONS_FAILURE
 
 } from '../actions/actions';
 
@@ -38,7 +42,9 @@ const initialState = {
     isAddingRestaurant: false,
     isEditingRestaurant: false,
     isDeletingRestaurant: false, 
-    error: ''
+    error: '',
+    recommendations: null,
+    isGettingRecommendations: false
 }
     
 
@@ -110,7 +116,9 @@ const restaurantReducer = (state = initialState, action) => {
                 city: '',
                 zip: '',
                 passport: [],
-                error: ''
+                error: '',
+                recommendations: null
+
             };
         case LOGOUT_USER_FAILURE:
             return {
@@ -173,6 +181,26 @@ const restaurantReducer = (state = initialState, action) => {
                 isDeletingRestaurant: false,
                 error: action.payload
             };
+        case GET_RECOMMENDATIONS_START:
+            return { 
+                ...state,
+                isGettingRecommendations: true,
+                error: ''
+            };
+        case GET_RECOMMENDATIONS_SUCCESS:
+            return { 
+                ...state,
+                recommendations: action.payload,
+                error: '',
+                isGettingRecommendations: false
+            
+            };
+        case GET_RECOMMENDATIONS_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                isGettingRecommendations: false
+            }
         default:
             return state;
         }
