@@ -14,7 +14,13 @@ const Recommendations = props => {
     console.log('we are recommendation props', props);
     const fetchRecommendations = () => {
         console.log('Time to fetch recommendations');
-        props.getRecommendations(props.city, props.zipcode);
+        const searchParams = {
+            location: `${props.city}, ${props.zipcode}`,
+            limit: 10,
+            sort_by: "rating"
+        }
+        //props.getRecommendations(props.city, props.zipcode);
+        props.getRecommendations(searchParams);
     }
 
     const addToPassport = (restaurant) => {
