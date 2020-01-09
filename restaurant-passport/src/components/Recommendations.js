@@ -3,11 +3,15 @@ import { connect } from "react-redux";
 
 import { getRecommendations} from '../actions/actions';
 import { addRestaurant } from '../actions/actions';
+import Loader from 'react-loader-spinner';
+
 
 import penBook from '../images/penBook.png';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+
 
 const Recommendations = props => {
-
+    console.log('we are recommendation props', props);
     const fetchRecommendations = () => {
         console.log('Time to fetch recommendations');
         props.getRecommendations(props.city, props.zipcode);
@@ -39,11 +43,12 @@ const Recommendations = props => {
         addButton.style.display = 'none';
         
     }
-
+    
     return (
         <div>
             <h1>My Recommendations</h1>
             {!props.recommendations && <button onClick={fetchRecommendations}>See Restaurants In My Area</button>}
+            {(props.isGettingRecommendations && <Loader type="ThreeDots" color="#44BF9C" height={80} width={80} />)}
             <div className='recommendations'>
             {props.recommendations && props.recommendations.map(restaurant => {
 
