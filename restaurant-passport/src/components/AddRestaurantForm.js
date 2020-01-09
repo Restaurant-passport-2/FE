@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import { addRestaurant } from '../actions/actions';
 import { connect } from "react-redux";
 
+import Loader from 'react-loader-spinner';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+
 function AddRestaurantForm(props) {
     const [restaurantName, setRestaurantName] = useState({
         name: "",
@@ -160,6 +163,8 @@ function AddRestaurantForm(props) {
               </div>
 
                 <button type="submit">Submit Restaurant</button>
+        {(props.isAddingRestaurant && <Loader type="ThreeDots" color="white" height={80} width={80} />)}
+
             </form>
        
         </div>
