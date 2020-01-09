@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from "react-redux";
 
 import { deleteRestaurant } from '../actions/actions';
+import { editRestaurant } from '../actions/actions';
 
 
 import OrangeCheck from '../images/OrangeCheck.png';
@@ -46,7 +47,10 @@ const startDelete = () => {
 
 const handleCheckboxChange = () => {
     //console.log(`Time to toggle the stamped status of ${currentRestaurant.restaurant.name}`);
+    const editedRestaurant = {...currentRestaurant, 'stamped': !isVisited};
+    props.editRestaurant(editedRestaurant);
     setIsVisited(!isVisited);
+   
     //TODO: Add functionality once the endpoint to do so is ready.
 }
     
@@ -95,5 +99,5 @@ const mapStateToProps = state => {
   
 export default connect(
     mapStateToProps,
-    { deleteRestaurant }
+    { deleteRestaurant, editRestaurant }
 )(RestaurantPage);
