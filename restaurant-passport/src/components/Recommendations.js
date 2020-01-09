@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 
 import { getRecommendations} from '../actions/actions';
 import { addRestaurant } from '../actions/actions';
 import Loader from 'react-loader-spinner';
+import LocationForm from './LocationForm';
 
 
 import penBook from '../images/penBook.png';
@@ -11,7 +12,9 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 
 const Recommendations = props => {
-    console.log('we are recommendation props', props);
+    //console.log('we are recommendation props', props);
+    const [showLocationForm, setShowLocationForm ] = useState(false);
+
     const fetchRecommendations = () => {
         console.log('Time to fetch recommendations');
         const searchParams = {
@@ -49,12 +52,22 @@ const Recommendations = props => {
         addButton.style.display = 'none';
         
     }
+
+    const startLocationSearch = () => {
+        setShowLocationForm(!showLocationForm);
+    }
     
     return (
         <div>
             <h1>My Recommendations</h1>
             {!props.recommendations && <button onClick={fetchRecommendations}>See Restaurants In My Area</button>}
+            <button onClick={startLocationSearch}>
+                {!showLocationForm? 'See Restaurants In a Different Area': 'End Search By Location'}
+            </button>
             {(props.isGettingRecommendations && <Loader type="ThreeDots" color="#44BF9C" height={80} width={80} />)}
+            
+            {showLocationForm && <LocationForm />}
+            
             <div className='recommendations'>
             {props.recommendations && props.recommendations.map(restaurant => {
 
