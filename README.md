@@ -1,3 +1,21 @@
+# Restaurant Passport
+Deployed Site: 
+https://restaurant-passport-2.netlify.com/
+
+**How to Initialize Project**
+
+    1. cd into the restaurant-passport directory.
+
+    2. Run yarn or npm i to install dependencies.
+
+    3. Run yarn start or npm start to start the server.
+
+    4. Go to http://localhost:3000/ to see the project.
+
+    5. Use your code editor to see the code and make changes.
+
+
+
 # FE
 
 **Product Vision: Restaurant Passport 2**
