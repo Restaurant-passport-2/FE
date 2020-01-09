@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { signupUser } from '../actions/actions';
 import { connect } from "react-redux";
 
+import Loader from 'react-loader-spinner';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+
+
 function SignUp(props) {
   const [newUser, setNewUser] = useState({
     name: "",
@@ -129,6 +133,8 @@ function SignUp(props) {
           </div>
     
           <button type="submit">Sign Up and Get Your Passport!</button>
+        {(props.isSigningUp && <Loader type="ThreeDots" color="white" height={80} width={80} />)}
+
         </form>
       
     </div>
