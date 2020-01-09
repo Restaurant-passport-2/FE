@@ -2,7 +2,11 @@ import React, { useState } from "react";
 
 import { loginUser } from '../actions/actions';
 import { connect } from "react-redux";
+import Loader from 'react-loader-spinner';
 import SignUp from './SignUp';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+
+
 
 function Login(props) {
   // console.log('login props', props)
@@ -15,7 +19,8 @@ function Login(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(user);
-    props.loginUser(user, props.history);
+  
+    props.loginUser(user, props.history)
   };
 
   const handleChange = (event) => {
@@ -65,6 +70,10 @@ function Login(props) {
             </div>
             <button type="submit">Login</button>
         </form>
+        {
+          (props.isLoggingIn ? <Loader type="ThreeDots" color="white" height={80} width={80} />
+          : null)
+        }
         </div>
     } 
     </div>
