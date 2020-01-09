@@ -309,3 +309,57 @@ p:nth-of-type(odd) {
   margin: 1rem auto;
   border-radius: 3px;
 }
+
+.recommendations {
+  width: 90%;
+  margin: 1rem auto;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: stretch;
+}
+.recommendation-box {
+  width: 30%;
+  border: dotted;
+  border-color: #F79905 ;
+  border-radius: 3px;
+
+  margin: .5rem;
+
+}
+.recommendation-box h2 {
+  margin: .5rem;
+  margin-top: 3rem;
+}
+.recommendation-box p {
+  color: black;
+}
+
+.rating{
+  font-weight: bold;
+  color: #44BF9C;
+
+}
+
+.pricing {
+  font-weight: bold;
+  color: #F79905;
+
+}
+
+.type {
+  font-weight: bold;
+  color: #44BF9C;
+}
+
+.recommendation-box a {
+  font-style: italic;
+  transition: all .2s ease-in-out;
+
+}
+.recommendation-box a:hover {
+  transform: scale(1.2);
+  color: #F79905;
+}
