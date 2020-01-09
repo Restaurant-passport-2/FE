@@ -7,6 +7,7 @@ import { logoutUser } from '../actions/actions';
 
 // <NavLink to='/signup' activeClassName='active'>Sign Up</NavLink>
 //<NavLink to='/' activeClassName='active'>Sign Out</NavLink>
+// <NavLink to='/' activeClassName='active'>Log In</NavLink>
 
 function Header(props) {
     return (
@@ -14,20 +15,23 @@ function Header(props) {
             <div className='img-container'>
                     <img src={logo} alt='logo' />
                 </div>
-            <h1>Restaurant Passport</h1>
+            {props.name? <h1><span className='name'>{props.name}'s</span> Restaurant Passport</h1> : <h1>Restaurant Passport</h1>}
             <nav>
-               
-                <NavLink to='/' activeClassName='active'>Log In</NavLink>
-                
                 <NavLink to='/restaurants' activeClassName='active'>My Passport</NavLink> 
-                <button onClick={props.logoutUser}>Log Out</button> 
+                <NavLink to='/profile' activeClassName='active'>My Profile</NavLink>
+                <NavLink to='/recommendations' activeClassName='active'>My Recommendations</NavLink>
+            <button onClick={props.logoutUser}>Log Out</button>
             </nav>    
         </header>
     );
 }
 
 const mapStateToProps = state => {
-    return state;
+    return {
+        ...state,
+    isLoggedIn: state.isLoggedIn,
+    name: state.name
+};
 };
 
 export default connect(

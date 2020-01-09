@@ -1,50 +1,48 @@
-import React, { useEffect, useState} from "react";
-import axios from 'axios';
+import React, { useState } from "react";
+import { connect } from 'react-redux';
+import { editRestaurant } from '../actions/actions';
 
-export default function EditRestaurantForm() {
-    const [restaurantName, setRestaurantName] = React.useState({
-        restaurantname: "",
-        city: "",
-        zipcode: "",
-        streetaddress: "",
-        phonenumber: "",
-        website: "",
-        myrating: "",
-        notes: "",
-        visited: "",  
+function EditRestaurantForm(props) {
+    const [restaurantName, setRestaurantName] = useState({
+      name: props.restaurant.name,
+      city: props.restaurant.city,
+      zipcode: props.restaurant.zipcode,
+      street_address: props.restaurant.street_address,
+      phone_number: props.restaurant.phone_number,
+      website_url: props.restaurant.phone_number,
+      personal_rating: props.restaurant.personal_rating,
+      notes: props.restaurant.notes,
+      stamped: props.restaurant.stamped,
+      restaurant_id: props.restaurant.restaurant_id   
       });
     
       const handleSubmit = (event) => {
-        event.preventDefault()
-        axios.post("https://restaurant-passport-2.herokuapp.com/api/auth/login", restaurantName)
-        .then(response =>{
-            console.log(response)
-    
-        })
-        .catch(err => {
-            console.log(err)
-        });
+        event.preventDefault();
+        console.log('Here is our edited restaurant, ready to submit: ', restaurantName);
+        // TODO: change parameter if needed
+        props.editRestaurant(restaurantName);
+        props.toggleEdit();
       };
     
       const handleEdit = (event) => {
-        setRestaurantName({...restaurantName, [event.target.name]: event.target.value })
+        const value = event.target.type === 'checkbox'? event.target.checked : event.target.value;
+        setRestaurantName({...restaurantName, [event.target.name]: value });
       };
     
       return (
-        <div className="App">
+        <div className="edit-restaurant-box">
           
           <form onSubmit={handleSubmit}>
-              <legend>Add Restaurant</legend>
+              <legend>Edit Restaurant</legend>
               <div className="inputContainer">
-                <label htmlFor="restaurantname">Restaurant Name: </label>
+                <label htmlFor="name">Restaurant Name: </label>
                 <input
                   required 
                   type="text"
-                  name="restaurantname"
-                  id="restaurantname"
-                  placeholder="enter restaurant name here"
+                  name="name"
+                  id="name"
                   onChange={handleEdit}
-                  value={restaurantName.restaurantname}
+                  value={restaurantName.name}
                 />
               </div>
           
@@ -55,7 +53,6 @@ export default function EditRestaurantForm() {
                     type="text"
                     name="city"
                     id="city"
-                    placeholder="enter city here"
                     onChange={handleEdit}
                     value={restaurantName.city}
                   />
@@ -68,7 +65,6 @@ export default function EditRestaurantForm() {
                   type="text"
                   name="zipcode"
                   id="zipcode"
-                  placeholder="enter zipcode here"
                   onChange={handleEdit}
                   value={restaurantName.zipcode}
                 />
@@ -76,54 +72,50 @@ export default function EditRestaurantForm() {
 
 
               <div className="inputContainer">
-                <label htmlFor="streetaddress">Street Address: </label>
+                <label htmlFor="street_address">Street Address: </label>
                 <input
                   required 
                   type="text"
-                  name="streetaddress"
-                  id="streetaddress"
-                  placeholder="enter address here"
+                  name="street_address"
+                  id="street_address"
                   onChange={handleEdit}
-                  value={restaurantName.streetaddress}
+                  value={restaurantName.street_address}
                 />
               </div>
 
               <div className="inputContainer">
-                <label htmlFor="phonenumber">Phone Number: </label>
+                <label htmlFor="phone_number">Phone Number: </label>
                 <input
-                  required 
+                   
                   type="text"
-                  name="phonenumber"
-                  id="phonenumber"
-                  placeholder="enter phone number here"
+                  name="phone_number"
+                  id="phone_number"
                   onChange={handleEdit}
-                  value={restaurantName.phonenumber}
+                  value={restaurantName.phone_number}
                 />
               </div>
 
               <div className="inputContainer">
-                <label htmlFor="website">URL: </label>
+                <label htmlFor="website_url">URL: </label>
                 <input
-                  required 
+                  
                   type="text"
-                  name="website"
-                  id="website"
-                  placeholder="enter website here"
+                  name="website_url"
+                  id="website_url"
                   onChange={handleEdit}
-                  value={restaurantName.website}
+                  value={restaurantName.website_url}
                 />
               </div>
 
               <div className="inputContainer">
-                <label htmlFor="myrating">My Rating: </label>
+                <label htmlFor="personal_rating">My Rating: </label>
                 <input
-                  required 
+                   
                   type="text"
-                  name="myrating"
-                  id="myrating"
-                  placeholder="enter 1-5 here"
+                  name="personal_rating"
+                  id="personal_rating"
                   onChange={handleEdit}
-                  value={restaurantName.myrating}
+                  value={restaurantName.personal_rating}
                 />
               </div>
 
@@ -134,29 +126,36 @@ export default function EditRestaurantForm() {
                   type="text"
                   name="notes"
                   id="notes"
-                  placeholder="notes"
                   onChange={handleEdit}
                   value={restaurantName.notes}
                 />
               </div>
 
               <div className="inputContainer">
-                <label htmlFor="visited">Visited: </label>
+                <label htmlFor="stamped">Visited?: </label>
                 <input
-                  required 
                   type="checkbox"
-                  name="visited"
-                  id="visited"
-                  placeholder=""
+                  name="stamped"
+                  id="stamped"
+                  checked={restaurantName.stamped? 'checked' : null}
                   onChange={handleEdit}
-                  value={restaurantName.visited}
+                  value={restaurantName.stamped}
                 />
               </div>
 
-                <button role="submit">Login</button>
+                <button type="submit">Submit Edit</button>
             </form>
        
         </div>
       );
 
 }
+
+const mapStateToProps = state => {
+  return state;
+};
+
+export default connect(
+  mapStateToProps,
+  { editRestaurant }
+)(EditRestaurantForm);

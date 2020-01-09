@@ -9,6 +9,21 @@ h1 {
   letter-spacing: 0.12rem;
   word-spacing: 0.6rem;
 }
+
+h3 {
+  transition: all 0.2s ease-in-out;
+}
+
+h3:hover {
+  transform: scale(1.2);
+}
+
+.img-container {
+  width: 8rem;
+}
+
+/* Header Styles */
+
 header {
   display: flex;
   flex-flow: row wrap;
@@ -18,8 +33,7 @@ header {
 }
 
 header .img-container {
-  width: 4rem;
-  
+  width: 4rem;  
 }
 
 img {
@@ -32,8 +46,10 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 2rem;
-  
- 
+}
+
+.name {
+  font-style: italic;
 }
 
 nav a {
@@ -52,7 +68,10 @@ active {
 
 a.active {
   font-style: bold;
+   
 }
+
+/* Form Styles */
 
 form {
   background: rgba(68, 191, 156, 0.8);
@@ -65,6 +84,10 @@ form {
   width: 40%;
   padding: 1rem;
   border-radius: 3px;
+}
+
+.edit-restaurant-box form {
+  width: 90%;
 }
 
 .inputContainer {
@@ -103,10 +126,10 @@ legend {
   margin-bottom: 0.5rem;
 }
 
+
+/* Signup Styles */
+
 .signUpPage {
-  background-image: url('./images/table2.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
   padding: 2rem;
 }
 
@@ -117,6 +140,8 @@ legend {
   padding: 1rem;
   border-radius: 3px;
 }
+
+/* Button Styles */
 
 button {
   font-family: 'Capriola', sans-serif;
@@ -138,6 +163,8 @@ button:active {
   transform: translateY(10px);
 }
 
+/* Login Styles */
+
 .loginPage {
   background-image: url('./images/table.jpg');
   background-size: cover;
@@ -154,17 +181,131 @@ button:active {
   }
 }
 
+/* Restaurant List Styles */
+
+.all-restaurants-box {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.picker-box {
+  display:flex;
+  flex-flow: row wrap;
+  margin: 1rem auto;
+  width: 60%;
+  justify-content: center;
+  align-items: center;
+  font-style: italic;
+}
+
 /* Restaurant Card Styles */
 
 .restaurant-box {
   border: 2px solid rgb(247, 153, 5);
   border-radius: 5px;
   padding: 0.75rem;
-  width: 45%;
-  margin: 1rem;
+  width: 30%;
+  margin: 0.5rem;
+  display:flex;
+  justify-content: center;
+  flex-flow: column nowrap;
+  align-items: center;
 }
 
 .stamp-box {
-  width: 5rem;
+  width: 6rem;
   margin: 1rem auto;
+}
+
+.rating-icon-box {
+  width: 3rem;
+}
+
+.rating-icon-row-box {
+  width: 60%;
+  margin: 1rem auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.visited-form {
+  padding: 0.5rem;
+  width: 20%;
+}
+
+.visited-form .inputContainer {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a h3{
+  width: 90%;
+  padding: 0.5rem;
+  border: rgba(68, 191, 156, 0.8) 2px solid;
+  border-radius: 3px;
+}
+
+/* Profile Page Styles */
+.profile-page {
+  width: 100%;
+  background-image: url('./images/table2.jpg');
+  background-size: cover;
+  padding: 2rem;
+}
+.profile-box {
+  width: 40%;
+  margin: 1rem auto;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 3px;
+}
+
+.inner-profile-box {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.text-box {
+  text-align: left;
+  color: #44BF9C;
+}
+
+.profile-label {
+  font-weight: bold;
+  color: black;
+  padding: 1rem;
+  
+}
+
+p:nth-of-type(odd) {
+  color: orange;
+}
+
+.title-box {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+/* Recommendation Page Styles */
+
+.yelp-img-box {
+  width: 30%;
+  margin: 1rem auto;
+  border-radius: 3px;
 }

@@ -1,37 +1,40 @@
-import React, { useEffect, useState} from "react";
-import axios from 'axios';
+import React, { useState } from "react";
 
 import { loginUser } from '../actions/actions';
 import { connect } from "react-redux";
+import SignUp from './SignUp';
 
 function Login(props) {
-  const [user, setUser] = React.useState({
+  // console.log('login props', props)
+  const [needsToSignUp, setNeedsToSignUp] = useState(false);
+  const [user, setUser] = useState({
     username: "",
     password: "",  
   });
 
   const handleSubmit = (event) => {
-    event.preventDefault()
-    /*
-    axios.post("https://restaurant-passport-2.herokuapp.com/api/auth/login", user)
-    .then(response =>{
-        console.log(response)
-      localStorage.setItem('token', response.data.token)
-    })
-    .catch(err => {
-        console.log(err)
-    });
-    */
+    event.preventDefault();
     console.log(user);
-    props.loginUser(user);
+    props.loginUser(user, props.history);
   };
 
   const handleChange = (event) => {
     setUser({...user, [event.target.name]: event.target.value })
   };
 
+  const handleClick = () => {
+    setNeedsToSignUp(!needsToSignUp);
+    // props.history.push('/signup')
+  }
+
   return (
     <div className='loginPage'>
+
+      <div>
+        <button onClick={handleClick}>{!needsToSignUp? 'First-Time User? Create Your Passport': 'Back to Login'}
+        </button> 
+        {needsToSignUp? <SignUp history={props.history} toggleSignUp={handleClick} /> : 
+        <div>
       <h1>Access Your Passport</h1>
       <form onSubmit={handleSubmit}>
           <legend>Log In</legend>
@@ -60,9 +63,11 @@ function Login(props) {
                 value={user.password}
               />
             </div>
-            <button role="submit">Login</button>
+            <button type="submit">Login</button>
         </form>
-    
+        </div>
+    } 
+    </div>
     </div>
   );
   }

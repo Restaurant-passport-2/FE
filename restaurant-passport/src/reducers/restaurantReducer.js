@@ -20,7 +20,11 @@ import {  SIGNUP_USER_START,
 
         DELETE_RESTAURANT_START,
         DELETE_RESTAURANT_SUCCESS,
-        DELETE_RESTAURANT_FAILURE
+        DELETE_RESTAURANT_FAILURE,
+
+        GET_RECOMMENDATIONS_START,
+        GET_RECOMMENDATIONS_SUCCESS,
+        GET_RECOMMENDATIONS_FAILURE
 
 } from '../actions/actions';
 
@@ -30,6 +34,7 @@ const initialState = {
     city: '',
     zip: '',
     passport: [],
+    name: '',
     isLoggedIn: false,
     isSigningUp: false,
     isLoggingIn: false,
@@ -37,7 +42,9 @@ const initialState = {
     isAddingRestaurant: false,
     isEditingRestaurant: false,
     isDeletingRestaurant: false, 
-    error: ''
+    error: '',
+    recommendations: null,
+    isGettingRecommendations: false
 }
     
 
@@ -58,8 +65,10 @@ const restaurantReducer = (state = initialState, action) => {
                 username: action.payload.user.username,
                 email: action.payload.user.email,
                 city: action.payload.user.city,
-                zip: action.payload.user.zip,
-                passport: action.payload.user.passport
+                zip: action.payload.user.zipcode,
+                passport: action.payload.user.passport,
+                name: action.payload.user.name, 
+                error: ''
             };
         case SIGNUP_USER_FAILURE:
             return {
@@ -81,7 +90,9 @@ const restaurantReducer = (state = initialState, action) => {
                 email: action.payload.user.email,
                 city: action.payload.user.city,
                 zip: action.payload.user.zipcode,
-                passport: action.payload.user.passport
+                passport: action.payload.user.passport,
+                name: action.payload.user.name, 
+                error: ''
             };
         case LOGIN_USER_FAILURE:
             return {
@@ -104,7 +115,10 @@ const restaurantReducer = (state = initialState, action) => {
                 email: '',
                 city: '',
                 zip: '',
-                passport: []
+                passport: [],
+                error: '',
+                recommendations: null
+
             };
         case LOGOUT_USER_FAILURE:
             return {
@@ -121,7 +135,9 @@ const restaurantReducer = (state = initialState, action) => {
             // TODO: add restaurant to passport in state OR get whole new passport from response, depending on API
             return {
                 ...state,
-                isAddingRestaurant: false
+                isAddingRestaurant: false,
+                passport: action.payload,
+                error: ''
             };
         case ADD_RESTAURANT_FAILURE:
             return {
@@ -135,16 +151,17 @@ const restaurantReducer = (state = initialState, action) => {
                     isEditingRestaurant: true
                 };
         case EDIT_RESTAURANT_SUCCESS:
-            // TODO: get whole new passport from response, probably
             return {
                 ...state,
-                isEditingRestaurant: false
+                isEditingRestaurant: false,
+                passport: action.payload,
+                error: ''
             };
         case EDIT_RESTAURANT_FAILURE:
             return {
                 ...state,
                 isEditingRestaurant: false,
-                error: 'Editing Restaurant Failure'
+                error: action.payload
             };
         case DELETE_RESTAURANT_START:
                 return {
@@ -152,17 +169,38 @@ const restaurantReducer = (state = initialState, action) => {
                     isDeletingRestaurant: true
                 };
         case DELETE_RESTAURANT_SUCCESS:
-            // TODO: get whole new passport from response, probably
             return {
                 ...state,
-                isDeletingRestaurant: false
+                isDeletingRestaurant: false,
+                passport: action.payload,
+                error: ''
             };
         case DELETE_RESTAURANT_FAILURE:
             return {
                 ...state,
                 isDeletingRestaurant: false,
-                error: 'Deleting Restaurant Failure'
+                error: action.payload
             };
+        case GET_RECOMMENDATIONS_START:
+            return { 
+                ...state,
+                isGettingRecommendations: true,
+                error: ''
+            };
+        case GET_RECOMMENDATIONS_SUCCESS:
+            return { 
+                ...state,
+                recommendations: action.payload,
+                error: '',
+                isGettingRecommendations: false
+            
+            };
+        case GET_RECOMMENDATIONS_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                isGettingRecommendations: false
+            }
         default:
             return state;
         }
