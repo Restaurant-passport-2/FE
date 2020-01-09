@@ -18,6 +18,10 @@ h3:hover {
   transform: scale(1.2);
 }
 
+.img-container {
+  width: 8rem;
+}
+
 header {
   display: flex;
   flex-flow: row wrap;
@@ -230,4 +234,48 @@ a h3{
   padding: 0.5rem;
   border: rgba(68, 191, 156, 0.8) 2px solid;
   border-radius: 3px;
+}
+
+/* Profile Page Styles */
+.profile-page {
+  width: 100%;
+  background-image: url('./images/table2.jpg');
+  background-size: cover;
+  padding: 2rem;
+}
+.profile-box {
+  width: 40%;
+  margin: 1rem auto;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 3px;
+}
+
+.inner-profile-box {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.text-box {
+  text-align: left;
+  color: #44BF9C;
+}
+
+.profile-label {
+  font-weight: bold;
+  color: black;
+  padding: 1rem;
+  
+}
+
+p:nth-of-type(odd) {
+  color: orange;
+}
+
+.title-box {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
 }
