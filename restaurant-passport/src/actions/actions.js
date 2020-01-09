@@ -116,16 +116,22 @@ export const deleteRestaurant = (restaurant) => dispatch => {
     })
 };
 
-export const getRecommendations = (city, zipcode) => dispatch => {
+export const getRecommendations = (searchParams) => dispatch => {
+    //original parameters: city, zipcode
     dispatch( { type: GET_RECOMMENDATIONS_START});
     console.log('In getRecommendations in actions');
     axiosWithAuth()
+    /*
         .get("https://restaurant-passport-2.herokuapp.com/api/restaurants/search", {
             params: {
                 location: `${city}, ${zipcode}`,
                 limit: 10,
                 sort_by: "rating"
             },
+        })
+    */
+    .get("https://restaurant-passport-2.herokuapp.com/api/restaurants/search", {
+        searchParams,
         })
         .then(response => {
             console.log('get recommendations response', response);
