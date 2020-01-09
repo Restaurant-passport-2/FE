@@ -3,5 +3,5 @@
     "name" : "/restaurant-passport",
     "builds" : [{"src": "/restaurant-passport/package.json",
         "use": "@now/static-build", "config": {"disDir": "build"} }],
-    "routes" : [ {"src": "/(.*)", "dest": "project-name/$1"}]
+    "routes" : [ {"src": "/(.*)", "dest": "restaurant-passport/$1"}]
 }
