@@ -8,6 +8,7 @@ function SignUp(props) {
     username: "",
     email: "",
     password: "",
+    confirmpasssword: "",
     city: "",
     zipcode: "",
   });
@@ -23,6 +24,10 @@ function SignUp(props) {
     setNewUser({...newUser, [event.target.name]: event.target.value })
   };
 
+  var password = document.getElementById("password")
+  , confirm_password = document.getElementById("confirmpassword");
+
+
   //<img src={table2} alt="table with food" />
   return (
     <div className='signUpPage'>
@@ -33,7 +38,8 @@ function SignUp(props) {
         <legend>Sign Up</legend>
         <div className="inputContainer">
           <label htmlFor="name">Name: </label>
-          <input 
+          <input
+            required 
             type="text"
             name="name"
             id="name"
@@ -46,6 +52,7 @@ function SignUp(props) {
         <div className="inputContainer">
           <label htmlFor="username">Username: </label>
           <input 
+            required
             type="text"
             name="username"
             id="username"
@@ -58,6 +65,7 @@ function SignUp(props) {
           <div className="inputContainer">
             <label htmlFor="email">Email: </label>
             <input 
+              required
               type="text"
               name="email"
               id="email"
@@ -71,6 +79,7 @@ function SignUp(props) {
           <div className="inputContainer">
             <label htmlFor="password">Password: </label>
             <input 
+              required
               type="password"
               name="password"
               id="password"
@@ -79,6 +88,21 @@ function SignUp(props) {
               value={newUser.password}
             />
           </div>
+
+          <div className="inputContainer">
+            <label htmlFor="confirmpassword">Confirm Password: </label>
+            <input 
+              required
+              confirmed
+              type="password"
+              name="confirmpassword"
+              id="confirmpassword"
+              placeholder="enter your password"
+              onChange={handleChange}
+              value={newUser.confirmpassword}
+            />
+          </div>
+
 
           <div className="inputContainer">
             <label htmlFor='city'>City: </label>

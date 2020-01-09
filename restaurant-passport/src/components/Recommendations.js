@@ -33,7 +33,8 @@ const Recommendations = props => {
         imgNode.src=penBook;
         imgNode.alt='book with pen';
         imgNode.style.width = '3rem';
-        box.append(imgNode);
+        imgNode.style.marginTop= '1rem';
+        box.prepend(imgNode);
         const addButton = document.getElementById(`${restaurant.id}-button`);
         addButton.style.display = 'none';
         
@@ -43,26 +44,32 @@ const Recommendations = props => {
         <div>
             <h1>My Recommendations</h1>
             {!props.recommendations && <button onClick={fetchRecommendations}>See Restaurants In My Area</button>}
+            <div className='recommendations'>
             {props.recommendations && props.recommendations.map(restaurant => {
+
                 return (
-                    <div id={`${restaurant.id}-box`} key={restaurant.id}>
+                    
+                    <div id={`${restaurant.id}-box`} key={restaurant.id} className='recommendation-box'>
                         <h2>{restaurant.name}</h2>
                         <p>{restaurant.location.address1}</p>
                         <p>{restaurant.location.city}, {restaurant.location.state} {restaurant.location.zip_code}</p>
                         <p>{restaurant.display_phone}</p>
                         <a href={restaurant.url}>Visit Website</a>
-                        <p>Rating: {restaurant.rating}</p>
-                        <p>Price: {restaurant.price}</p>
-                        <p>Type(s):</p>
+            
+                        <p><span className="rating">Rating: </span> {restaurant.rating}</p> 
+                        <p><span className='pricing'>Price: </span> {restaurant.price}</p>
+                        <p><span className='type'>Type(s): </span></p>
                         {restaurant.categories.map(category => <p key={category.title}>{category.title}</p>)}
                         <div className='yelp-img-box'>
                             <img src={restaurant.image_url} alt='from yelp' />
                         </div>
                         <button id={`${restaurant.id}-button`} onClick={() => addToPassport(restaurant)}>Add to My Passport</button>
-                        <hr />
+                        
                     </div>
+                    
                 )
             })}
+            </div>
         </div>
     )
 }
