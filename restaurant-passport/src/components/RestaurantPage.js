@@ -11,7 +11,7 @@ import EditRestaurantForm from './EditRestaurantForm';
 
 
 const RestaurantPage = (props) => {
-    console.log('Restaurant page props', props)
+    //console.log('Restaurant page props', props)
 
     const [currentRestaurant, setCurrentRestaurant]= useState(null);
     const [isEditing, setIsEditing] = useState(false);
@@ -30,7 +30,7 @@ const RestaurantPage = (props) => {
         if (currentRestaurant) {setIsVisited(currentRestaurant.stamped)};
     }, [currentRestaurant])
 
-   console.log('This is your current restaurant',currentRestaurant)
+   //console.log('This is your current restaurant',currentRestaurant)
 
 
    const handleClick = () => {
@@ -58,11 +58,7 @@ const handleCheckboxChange = () => {
    }}
 
     return (
-        
-        
         <div>
-            {console.log('currentRestaurant',currentRestaurant)}
-        
         {currentRestaurant && <h2>{currentRestaurant.name}</h2>}
         {currentRestaurant && <p>{currentRestaurant.street_address}</p>}
         {currentRestaurant && <p>{currentRestaurant.city}, {currentRestaurant.state} {currentRestaurant.zipcode}</p>}

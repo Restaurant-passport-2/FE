@@ -12,12 +12,13 @@ function EditRestaurantForm(props) {
       website_url: props.restaurant.phone_number,
       personal_rating: props.restaurant.personal_rating,
       notes: props.restaurant.notes,
-      stamped: props.restaurant.stamped,   
+      stamped: props.restaurant.stamped,
+      restaurant_id: props.restaurant.restaurant_id   
       });
     
       const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(restaurantName);
+        console.log('Here is our edited restaurant, ready to submit: ', restaurantName);
         // TODO: change parameter if needed
         props.editRestaurant(restaurantName);
         props.toggleEdit();

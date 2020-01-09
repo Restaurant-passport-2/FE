@@ -94,8 +94,16 @@ export const addRestaurant = (restaurant) => dispatch => {
 
 export const editRestaurant = (restaurant) => dispatch => {
     dispatch( { type: EDIT_RESTAURANT_START});
-    console.log('In editRestaurant in actions');
-   //more to come
+    console.log('In editRestaurant in actions with restaurant of id ', restaurant.restaurant_id);
+    axiosWithAuth().put(`https://restaurant-passport-2.herokuapp.com/api/passport/entry/${restaurant.restaurant_id}`, restaurant)
+    .then(response => {
+        console.log("Here is the response after editing a restaurant", response);
+        dispatch({type: EDIT_RESTAURANT_SUCCESS, payload: response.data.entries})
+    })
+    .catch(err => {
+        console.log('This is an error in edit restaurant: ', err);
+        dispatch({type: EDIT_RESTAURANT_FAILURE, payload: err})
+    });
 };
 
 export const deleteRestaurant = (restaurant) => dispatch => {

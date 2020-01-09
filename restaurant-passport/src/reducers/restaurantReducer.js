@@ -140,17 +140,17 @@ const restaurantReducer = (state = initialState, action) => {
                     isEditingRestaurant: true
                 };
         case EDIT_RESTAURANT_SUCCESS:
-            // TODO: get whole new passport from response, probably
             return {
                 ...state,
                 isEditingRestaurant: false,
+                passport: action.payload,
                 error: ''
             };
         case EDIT_RESTAURANT_FAILURE:
             return {
                 ...state,
                 isEditingRestaurant: false,
-                error: 'Editing Restaurant Failure'
+                error: action.payload
             };
         case DELETE_RESTAURANT_START:
                 return {
@@ -158,7 +158,6 @@ const restaurantReducer = (state = initialState, action) => {
                     isDeletingRestaurant: true
                 };
         case DELETE_RESTAURANT_SUCCESS:
-            // TODO: get whole new passport from response, probably
             return {
                 ...state,
                 isDeletingRestaurant: false,
