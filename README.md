@@ -8,11 +8,11 @@ https://restaurant-passport-2.netlify.com/
 
     2. Run yarn or npm i to install dependencies.
 
-    2. Run yarn start or npm start to start the server.
+    3. Run yarn start or npm start to start the server.
 
-    3. Go to http://localhost:3000/ to see the project.
+    4. Go to http://localhost:3000/ to see the project.
 
-    4. Use your code editor to see the code and make changes.
+    5. Use your code editor to see the code and make changes.
 
 
 
