@@ -10,6 +10,8 @@ import SignUp from "./components/SignUp";
 import RestaurantList from './components/RestaurantList';
 import PrivateRoute from './components/PrivateRoute';
 import RestaurantPage from './components/RestaurantPage';
+import Profile from './components/Profile';
+import Recommendations from './components/Recommendations';
 
 
 
@@ -41,6 +43,8 @@ function App(props) {
         {/* <Route path='/login' component={Login} /> */}
         <PrivateRoute exact path='/restaurants' component={RestaurantList} />
         <PrivateRoute exact path='/restaurants/:restaurantId' component={RestaurantPage} />
+        <PrivateRoute exact path='/profile' component={Profile} />
+        <PrivateRoute exact path='/recommendations' component={Recommendations} />
      
       <Footer />
       

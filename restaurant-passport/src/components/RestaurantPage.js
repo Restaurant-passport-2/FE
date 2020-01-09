@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from "react-redux";
 
 import { deleteRestaurant } from '../actions/actions';
+import { editRestaurant } from '../actions/actions';
 
 
 import OrangeCheck from '../images/OrangeCheck.png';
@@ -11,7 +12,7 @@ import EditRestaurantForm from './EditRestaurantForm';
 
 
 const RestaurantPage = (props) => {
-    console.log('Restaurant page props', props)
+    //console.log('Restaurant page props', props)
 
     const [currentRestaurant, setCurrentRestaurant]= useState(null);
     const [isEditing, setIsEditing] = useState(false);
@@ -30,7 +31,7 @@ const RestaurantPage = (props) => {
         if (currentRestaurant) {setIsVisited(currentRestaurant.stamped)};
     }, [currentRestaurant])
 
-   console.log('This is your current restaurant',currentRestaurant)
+   //console.log('This is your current restaurant',currentRestaurant)
 
 
    const handleClick = () => {
@@ -46,7 +47,10 @@ const startDelete = () => {
 
 const handleCheckboxChange = () => {
     //console.log(`Time to toggle the stamped status of ${currentRestaurant.restaurant.name}`);
+    const editedRestaurant = {...currentRestaurant, 'stamped': !isVisited};
+    props.editRestaurant(editedRestaurant);
     setIsVisited(!isVisited);
+   
     //TODO: Add functionality once the endpoint to do so is ready.
 }
     
@@ -58,11 +62,7 @@ const handleCheckboxChange = () => {
    }}
 
     return (
-        
-        
         <div>
-            {console.log('currentRestaurant',currentRestaurant)}
-        
         {currentRestaurant && <h2>{currentRestaurant.name}</h2>}
         {currentRestaurant && <p>{currentRestaurant.street_address}</p>}
         {currentRestaurant && <p>{currentRestaurant.city}, {currentRestaurant.state} {currentRestaurant.zipcode}</p>}
@@ -99,5 +99,5 @@ const mapStateToProps = state => {
   
 export default connect(
     mapStateToProps,
-    { deleteRestaurant }
+    { deleteRestaurant, editRestaurant }
 )(RestaurantPage);

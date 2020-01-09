@@ -15,9 +15,11 @@ function Header(props) {
             <div className='img-container'>
                     <img src={logo} alt='logo' />
                 </div>
-            <h1>Restaurant Passport</h1>
+            {props.name? <h1><span className='name'>{props.name}'s</span> Restaurant Passport</h1> : <h1>Restaurant Passport</h1>}
             <nav>
                 <NavLink to='/restaurants' activeClassName='active'>My Passport</NavLink> 
+                <NavLink to='/profile' activeClassName='active'>My Profile</NavLink>
+                <NavLink to='/recommendations' activeClassName='active'>My Recommendations</NavLink>
             <button onClick={props.logoutUser}>Log Out</button>
             </nav>    
         </header>
@@ -27,7 +29,8 @@ function Header(props) {
 const mapStateToProps = state => {
     return {
         ...state,
-    isLoggedIn: state.isLoggedIn
+    isLoggedIn: state.isLoggedIn,
+    name: state.name
 };
 };
 
