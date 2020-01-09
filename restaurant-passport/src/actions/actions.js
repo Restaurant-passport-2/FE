@@ -120,6 +120,7 @@ export const getRecommendations = (searchParams) => dispatch => {
     //original parameters: city, zipcode
     dispatch( { type: GET_RECOMMENDATIONS_START});
     console.log('In getRecommendations in actions');
+    console.log('With searchParams: ', searchParams);
     axiosWithAuth()
     /*
         .get("https://restaurant-passport-2.herokuapp.com/api/restaurants/search", {
@@ -131,7 +132,7 @@ export const getRecommendations = (searchParams) => dispatch => {
         })
     */
     .get("https://restaurant-passport-2.herokuapp.com/api/restaurants/search", {
-        searchParams,
+        params: searchParams,
         })
         .then(response => {
             console.log('get recommendations response', response);
