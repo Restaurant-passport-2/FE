@@ -22,6 +22,8 @@ h3:hover {
   width: 8rem;
 }
 
+/* Header Styles */
+
 header {
   display: flex;
   flex-flow: row wrap;
@@ -68,6 +70,8 @@ a.active {
   font-style: bold;
    
 }
+
+/* Form Styles */
 
 form {
   background: rgba(68, 191, 156, 0.8);
@@ -122,10 +126,10 @@ legend {
   margin-bottom: 0.5rem;
 }
 
+
+/* Signup Styles */
+
 .signUpPage {
-  /* background-image: url('./images/table2.jpg'); */
-  background-size: cover;
-  background-repeat: no-repeat;
   padding: 2rem;
 }
 
@@ -136,6 +140,8 @@ legend {
   padding: 1rem;
   border-radius: 3px;
 }
+
+/* Button Styles */
 
 button {
   font-family: 'Capriola', sans-serif;
@@ -157,6 +163,8 @@ button:active {
   transform: translateY(10px);
 }
 
+/* Login Styles */
+
 .loginPage {
   background-image: url('./images/table.jpg');
   background-size: cover;
@@ -173,13 +181,26 @@ button:active {
   }
 }
 
-/* Restaurant Card Styles */
+/* Restaurant List Styles */
+
 .all-restaurants-box {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: stretch;
 }
+
+.picker-box {
+  display:flex;
+  flex-flow: row wrap;
+  margin: 1rem auto;
+  width: 60%;
+  justify-content: center;
+  align-items: center;
+  font-style: italic;
+}
+
+/* Restaurant Card Styles */
 
 .restaurant-box {
   border: 2px solid rgb(247, 153, 5);
@@ -224,13 +245,14 @@ button:active {
   justify-content: center;
   align-items: center;
 }
-a{
+
+a {
   text-decoration: none;
   color: black;
 }
 
 a h3{
-  width: 100%;
+  width: 90%;
   padding: 0.5rem;
   border: rgba(68, 191, 156, 0.8) 2px solid;
   border-radius: 3px;

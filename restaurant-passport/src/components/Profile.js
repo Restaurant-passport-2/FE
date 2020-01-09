@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import utensils from '../images/utensils_noBackground.png';
 import forkLeft from '../images/forkLeft.png';
 import forkRight from '../images/forkRight.png';
 import menu from '../images/menu.png';
