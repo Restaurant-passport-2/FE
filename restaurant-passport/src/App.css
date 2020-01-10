@@ -42,7 +42,7 @@ img {
 
 nav {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
   padding: 2rem;
@@ -54,6 +54,7 @@ nav {
 
 nav a {
   margin-right: 2rem;
+  margin-bottom: 0.5rem;
   text-decoration: none;
   color: #44BF9C;
   background: rgba(255, 255, 255, 0.8);
