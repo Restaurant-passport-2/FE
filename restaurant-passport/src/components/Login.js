@@ -18,7 +18,7 @@ function Login(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(user);
+    //console.log(user);
   
     props.loginUser(user, props.history)
   };
@@ -29,7 +29,6 @@ function Login(props) {
 
   const handleClick = () => {
     setNeedsToSignUp(!needsToSignUp);
-    // props.history.push('/signup')
   }
 
   return (

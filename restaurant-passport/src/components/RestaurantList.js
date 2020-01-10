@@ -8,7 +8,6 @@ const RestaurantList = (props) => {
     const [addingRest, setAddingRest] = useState(false);
 
     const handleButton = () => {
-        //e.preventDefault();
         setAddingRest(!addingRest)
     }
 

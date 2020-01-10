@@ -7,11 +7,9 @@ import LoveForkKnifeOrange from '../images/LoveForkKnifeOrange.png';
 
 import { deleteRestaurant } from '../actions/actions';
 
-//import EditRestaurantForm from './EditRestaurantForm';
 
 const Restaurant = (props) => {
     // console.log('restaurant props', props)
-    //const [isEditing, setIsEditing] = useState(false);
     const [isVisited, setIsVisited] = useState(props.restaurant.stamped);
 
     const rows = [];
@@ -21,40 +19,10 @@ const Restaurant = (props) => {
     </div>);
     }
 
-    /*
-    const handleClick = () => {
-        console.log(`Time to toggle editing!`);
-        setIsEditing(!isEditing);
-    }
-
-    const startDelete = () => {
-        console.log(`Time to delete ${props.restaurant.restaurant.name}`);
-        //TODO: Change the parameter below to be whatever the back-end endpoint needs.
-        props.deleteRestaurant(props.restaurant);
-    }
-
-    const handleCheckboxChange = () => {
-        console.log(`Time to toggle the stamped status of ${props.restaurant.restaurant.name}`);
-        setIsVisited(!isVisited);
-        //TODO: Add functionality once the endpoint to do so is ready.
-    }
-
-    */
-
-    // const goToPage = () => {
-    //     console.log(`Time to go to RestaurantPage for restaurant with id of ${props.restaurant.restaurant_id}`);
-    //     //TODO: Add something like below to go to the RestaurantPage
-    //     props.history.push(`/restaurants/${props.restaurant.restaurant_id}`);
-        
-    // }
-
     return(
        
         <div className='restaurant-box'>
-            {/* <button onClick={handleClick}>{isEditing? 'Cancel Edit': 'Edit'}</button>
-            <button onClick={startDelete}>Delete</button> */}
-
-            {/* {isEditing && <EditRestaurantForm restaurant={props.restaurant} toggleEdit={handleClick}/>} */}
+            
             <Link to={`/restaurants/${props.restaurant.restaurant_id}`}>
             <h3>{props.restaurant.name}</h3>
             </Link>

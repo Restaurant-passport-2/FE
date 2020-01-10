@@ -35,12 +35,12 @@ const RestaurantPage = (props) => {
 
 
    const handleClick = () => {
-    console.log(`Time to toggle editing!`);
+    //console.log(`Time to toggle editing!`);
     setIsEditing(!isEditing);
 }
 
 const startDelete = () => {
-    console.log(`Time to delete ${currentRestaurant.name}`);
+    //console.log(`Time to delete ${currentRestaurant.name}`);
     props.deleteRestaurant(currentRestaurant);
     props.history.push('/restaurants');
 }
