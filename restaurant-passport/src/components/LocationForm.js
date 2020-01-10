@@ -11,7 +11,7 @@ const LocationForm = props => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        console.log('Time to fetch recommendations based on location with ', `${location.city}, ${location.zipcode}`);
+        // console.log('Time to fetch recommendations based on location with ', `${location.city}, ${location.zipcode}`);
         const searchParams = {
             location: `${location.city}, ${location.zipcode}`,
             limit: 10,
