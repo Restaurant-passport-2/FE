@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 
 import OrangeCheck from '../images/OrangeCheck.png';
 import LoveForkKnifeOrange from '../images/LoveForkKnifeOrange.png';
+import LighterGrayCheck from '../images/LighterGrayCheck.png';
 
 import { deleteRestaurant } from '../actions/actions';
 
@@ -26,7 +27,8 @@ const Restaurant = (props) => {
             <Link to={`/restaurants/${props.restaurant.restaurant_id}`}>
             <h3>{props.restaurant.name}</h3>
             </Link>
-            {isVisited && <div className='stamp-box'><img src={ OrangeCheck } alt='passport stamp' /></div>}
+            {isVisited? <div className='stamp-box'><img src={ OrangeCheck } alt='passport stamp' /></div> :
+                <div className='stamp-box'><img src={ LighterGrayCheck } alt='passport stamp' /></div>}
             <p>{props.restaurant.street_address} <br/>{props.restaurant.city} {props.restaurant.zipcode}  </p>
             <p>{props.restaurant.phone_number}</p>
             <a href={props.restaurant.website_url}>Visit the Website</a>

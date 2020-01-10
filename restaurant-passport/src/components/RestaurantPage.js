@@ -7,6 +7,7 @@ import { editRestaurant } from '../actions/actions';
 
 import OrangeCheck from '../images/OrangeCheck.png';
 import LoveForkKnifeOrange from '../images/LoveForkKnifeOrange.png';
+import LighterGrayCheck from '../images/LighterGrayCheck.png';
 
 import EditRestaurantForm from './EditRestaurantForm';
 
@@ -72,7 +73,8 @@ const handleCheckboxChange = () => {
                     {rows}
                 </div>
         {currentRestaurant && <p>Notes: {currentRestaurant.notes}</p>}
-        {isVisited && <div className='stamp-box'><img src={ OrangeCheck } alt='passport stamp' /></div>}
+        {isVisited? <div className='stamp-box'><img src={ OrangeCheck } alt='passport stamp' /></div> :
+                <div className='stamp-box'><img src={ LighterGrayCheck } alt='passport stamp' /></div>}
         <form className='visited-form'>
                 <div className='inputContainer'>
                 <label htmlFor='visited'>Visited? </label>
