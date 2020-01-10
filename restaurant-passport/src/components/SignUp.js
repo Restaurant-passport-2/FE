@@ -28,6 +28,11 @@ function SignUp(props) {
     setNewUser({...newUser, [event.target.name]: event.target.value })
   };
 
+  var password = document.getElementById("password")
+  , confirm_password = document.getElementById("confirmpassword");
+
+
+  //<img src={table2} alt="table with food" />
   return (
     <div className='signUpPage'>
 

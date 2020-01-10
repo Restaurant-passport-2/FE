@@ -8,12 +8,12 @@ import { BrowserRouter as Router} from "react-router-dom";
 import {Provider} from 'react-redux';
 import {createStore,  applyMiddleware} from 'redux';
 import thunk from "redux-thunk";
-//import logger from "redux-logger";
+import logger from "redux-logger";
 
 import restaurantReducer from './reducers/restaurantReducer';
 
-const store = createStore(restaurantReducer, applyMiddleware(thunk));
-// add logger to applyMiddleware() to use it
+const store = createStore(restaurantReducer, applyMiddleware(thunk, logger));
+
 
 ReactDOM.render(
  <Provider store = {store}>

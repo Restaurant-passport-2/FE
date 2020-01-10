@@ -18,7 +18,8 @@ function EditRestaurantForm(props) {
     
       const handleSubmit = (event) => {
         event.preventDefault();
-        //console.log('Here is our edited restaurant, ready to submit: ', restaurantName);
+        console.log('Here is our edited restaurant, ready to submit: ', restaurantName);
+        // TODO: change parameter if needed
         props.editRestaurant(restaurantName);
         props.toggleEdit();
       };

@@ -31,12 +31,12 @@ export const GET_RECOMMENDATIONS_FAILURE = 'GET_RECOMMENDATIONS_FAILURE';
 
 
 export const signupUser = (newUser, history) => dispatch => {
-    //console.log('In signupUser in actions');
+    console.log('In signupUser in actions');
     dispatch( { type: SIGNUP_USER_START });
     axios
         .post("https://restaurant-passport-2.herokuapp.com/api/auth/signup", newUser)
         .then(response => {
-            //console.log(response);
+            console.log(response);
             dispatch( { type: SIGNUP_USER_SUCCESS, payload: response.data});
             localStorage.setItem('token', response.data.token);
             history.push('/')
@@ -48,11 +48,11 @@ export const signupUser = (newUser, history) => dispatch => {
 
 export const loginUser = (user, history) => dispatch => {
     dispatch( { type: LOGIN_USER_START });
-    //console.log('in loginUser in actions');
+    console.log('in loginUser in actions');
     axios
         .post("https://restaurant-passport-2.herokuapp.com/api/auth/login", user)
         .then(response =>{
-            //console.log('Login response from actions' ,history.push);
+            console.log('Login response from actions' ,history.push);
             localStorage.setItem('token', response.data.token);
             dispatch( {type: LOGIN_USER_SUCCESS, payload: response.data });
             history.push('/restaurants')
@@ -75,14 +75,14 @@ export const logoutUser = () => dispatch => {
 
 export const addRestaurant = (restaurant) => dispatch => {
     dispatch( { type: ADD_RESTAURANT_START});
-    //console.log("Ready to be sent : ", restaurant);
+    console.log("Ready to be sent : ", restaurant);
     axiosWithAuth().post('https://restaurant-passport-2.herokuapp.com/api/passport/entry', restaurant)
     .then(response => {
-        //console.log("Here is the response after adding a restaurant", response);
+        console.log("Here is the response after adding a restaurant", response);
         dispatch({type: ADD_RESTAURANT_SUCCESS, payload: response.data.entries})
     })
     .catch(err => {
-        //console.log('This is an error in add restaurant', err);
+        console.log('This is an error in add restaurant', err);
         dispatch({type: ADD_RESTAURANT_FAILURE, payload: err})
     })
     
@@ -90,47 +90,56 @@ export const addRestaurant = (restaurant) => dispatch => {
 
 export const editRestaurant = (restaurant) => dispatch => {
     dispatch( { type: EDIT_RESTAURANT_START});
-    //console.log('In editRestaurant in actions with restaurant of id ', restaurant.restaurant_id);
+    console.log('In editRestaurant in actions with restaurant of id ', restaurant.restaurant_id);
     axiosWithAuth().put(`https://restaurant-passport-2.herokuapp.com/api/passport/entry/${restaurant.restaurant_id}`, restaurant)
     .then(response => {
-        //console.log("Here is the response after editing a restaurant", response);
+        console.log("Here is the response after editing a restaurant", response);
         dispatch({type: EDIT_RESTAURANT_SUCCESS, payload: response.data.entries})
     })
     .catch(err => {
-        //console.log('This is an error in edit restaurant: ', err);
+        console.log('This is an error in edit restaurant: ', err);
         dispatch({type: EDIT_RESTAURANT_FAILURE, payload: err})
     });
 };
 
 export const deleteRestaurant = (restaurant) => dispatch => {
     dispatch( { type: DELETE_RESTAURANT_START});
-    //console.log('In deleteRestaurant in actions');
+    console.log('In deleteRestaurant in actions');
     axiosWithAuth().delete(`https://restaurant-passport-2.herokuapp.com/api/passport/entry/${restaurant.restaurant_id}`)
     .then(response => {
-        //console.log('delete action response', response)
+        console.log('delete action response', response)
         dispatch({type: DELETE_RESTAURANT_SUCCESS, payload: response.data.entries})
     })
     .catch(err => {
-        //console.log('delete action error', err)
+        console.log('delete action error', err)
         dispatch({type: DELETE_RESTAURANT_FAILURE, payload: err.message})
     })
 };
 
 export const getRecommendations = (searchParams) => dispatch => {
-   
+    //original parameters: city, zipcode
     dispatch( { type: GET_RECOMMENDATIONS_START});
-    //console.log('In getRecommendations in actions');
-    //console.log('With searchParams: ', searchParams);
+    console.log('In getRecommendations in actions');
+    console.log('With searchParams: ', searchParams);
     axiosWithAuth()
+    /*
+        .get("https://restaurant-passport-2.herokuapp.com/api/restaurants/search", {
+            params: {
+                location: `${city}, ${zipcode}`,
+                limit: 10,
+                sort_by: "rating"
+            },
+        })
+    */
     .get("https://restaurant-passport-2.herokuapp.com/api/restaurants/search", {
         params: searchParams,
         })
         .then(response => {
-            //console.log('get recommendations response', response);
+            console.log('get recommendations response', response);
             dispatch({type: GET_RECOMMENDATIONS_SUCCESS, payload: response.data.businesses})
         })
         .catch(err => {
-            //console.log('get recommendations error', err);
+            console.log('get recommendations error', err);
             dispatch({type: GET_RECOMMENDATIONS_FAILURE, payload: err.message})
         })
 }

@@ -50,7 +50,7 @@ const initialState = {
 
 
 const restaurantReducer = (state = initialState, action) => {
-    //console.log('restaurantReducer firing', state, action);
+    console.log('restaurantReducer firing', state, action);
     switch( action.type) {
         case SIGNUP_USER_START:
             return { 
@@ -132,6 +132,7 @@ const restaurantReducer = (state = initialState, action) => {
                 isAddingRestaurant: true
             };
         case ADD_RESTAURANT_SUCCESS:
+            // TODO: add restaurant to passport in state OR get whole new passport from response, depending on API
             return {
                 ...state,
                 isAddingRestaurant: false,

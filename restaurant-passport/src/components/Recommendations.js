@@ -27,7 +27,7 @@ const Recommendations = props => {
     }
 
     const addToPassport = (restaurant) => {
-        //console.log('Time to add a restaurant to passport');
+        console.log('Time to add a restaurant to passport');
         const formattedRestaurant = {
             "name": restaurant.name,
             "street_address": restaurant.location.address1,
